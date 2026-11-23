@@ -1,0 +1,58 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>Detection Pipeline - Status Report</title>
+<style>
+ body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#f4f5f7;color:#1a1a1a}
+ header{background:#0a2540;color:#fff;padding:20px 28px}
+ header h1{margin:0;font-size:20px} header .s{opacity:.75;font-size:13px;margin-top:4px}
+ .wrap{max-width:900px;margin:0 auto;padding:22px 28px}
+ .cards{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+ .card{background:#fff;border:1px solid #e6e8ec;border-radius:10px;padding:14px 18px;flex:1;min-width:150px}
+ .card .n{font-size:26px;font-weight:700} .card .l{font-size:11px;text-transform:uppercase;color:#667;letter-spacing:.4px}
+ h2{font-size:15px;margin:24px 0 8px}
+ table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;font-size:13px}
+ th,td{text-align:left;padding:8px 12px;border-bottom:1px solid #eef0f2} th{background:#f8f9fb}
+ .box{background:#fff;border:1px solid #e6e8ec;border-radius:10px;padding:16px}
+ ul{margin:6px 0;padding-left:20px;font-size:13px} .muted{color:#889;font-size:12px}
+</style></head><body>
+<header><h1>Detection Rule Pipeline &mdash; Status Report</h1>
+<div class="s">MITRE ATT&amp;CK v? &middot; YARA-L / Google SecOps &middot; generated 2026-09-30 19:18 UTC</div></header>
+<div class="wrap">
+ <div class="cards">
+  <div class="card"><div class="n">251</div><div class="l">Rules generated</div></div>
+  <div class="card"><div class="n">6</div><div class="l">Techniques touched</div></div>
+  <div class="card"><div class="n">76%</div><div class="l">Needing review</div></div>
+  <div class="card"><div class="n">1</div><div class="l">Declined by model</div></div>
+ </div>
+
+ <h2>Progress toward plan (~527 rules)</h2>
+ <div class="box"><div style="background:#e6e8ec;border-radius:6px;height:22px;overflow:hidden"><div style="width:48%;background:#4caf50;height:100%"></div></div>
+  <div class="muted" style="margin-top:6px">251 of ~527 generated
+  (48%)</div></div>
+
+ <h2>Coverage snapshot</h2>
+ <div class="box">
+  Existing coverage (spreadsheet): <b>176</b> technique IDs of 697.
+  This pipeline has generated rules touching <b>6</b> parent techniques.
+  <div class="muted" style="margin-top:6px">Note: coverage counts rule presence, not
+  runtime-validated detections.</div></div>
+
+ <h2>By priority tier</h2><table><tr><th>Tier</th><th>Rules</th></tr><tr><td>Credential Dumping / Password Stores</td><td>75</td></tr><tr><td>Process Injection</td><td>65</td></tr><tr><td>Command and Scripting Interpreter</td><td>64</td></tr><tr><td>Valid Accounts (incl. cloud)</td><td>25</td></tr><tr><td>App-layer C2 and Ingress Tool Transfer</td><td>22</td></tr></table>
+
+ <h2>By rule type</h2><table><tr><th>Type</th><th>Rules</th><th>Share</th></tr><tr><td>single-event</td><td>200</td><td>80%</td></tr><tr><td>correlation</td><td>51</td><td>20%</td></tr></table>
+
+ <h2>Review-rate trend (per batch)</h2>
+ <table><tr><th>Run</th><th>Rules</th><th>Flagged</th><th>Rate</th></tr><tr><td>20260930T064012Z</td><td>10</td><td>9</td><td>90%</td></tr><tr><td>20260930T065725Z</td><td>2</td><td>1</td><td>50%</td></tr><tr><td>20260930T065819Z</td><td>238</td><td>181</td><td>76%</td></tr><tr><td>20260930T191119Z</td><td>1</td><td>1</td><td>100%</td></tr></table>
+ <div class="muted">A stable rate around 15-20% is healthy; a sudden spike is worth pausing on.</div>
+
+ <h2>Declined techniques (model judged not behaviorally detectable)</h2>
+ <div class="box"><ul><li>T1059.010 v5 (platform)</li></ul>
+  <div class="muted">These are correct refusals, not failures - the model avoided
+  hallucinating logic for techniques that need an IOC.</div></div>
+
+ <h2>Recommended next step</h2>
+ <div class="box">Before generating the remaining rules, compile 2-3 of these in a
+  Chronicle test tenant to confirm they import cleanly. If they do, proceed with the
+  batch; if not, the fix propagates to all rules and is cheaper to catch now.</div>
+ <p class="muted" style="margin-top:20px">All figures are AI-generated pipeline output
+  pending human review. Not deployment-ready without engineer sign-off.</p>
+</div></body></html>

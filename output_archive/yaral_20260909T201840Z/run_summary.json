@@ -1,0 +1,473 @@
+{
+  "run_id": "20260909T201840Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 176,
+  "gap_count": 432,
+  "generated": 20,
+  "failed": 0,
+  "with_warnings": 12,
+  "auto_fixed_total": 3,
+  "chronicle_verified_ok": 18,
+  "chronicle_verified_failed": 2,
+  "elapsed_minutes": 8.1,
+  "generated_by_priority_tier": {
+    "Process Injection": 20
+  },
+  "generated_by_platform": {
+    "Linux": 5,
+    "Windows": 15
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1055",
+      "name": "Process Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1055_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055",
+      "name": "Process Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055|PROCESS_LAUNCH,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.file.full_path|windows",
+      "file": "T1055_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.001",
+      "name": "Dynamic-link Library Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.001|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1055_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.001",
+      "name": "Dynamic-link Library Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.001|PROCESS_MODULE_LOAD,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1055_001_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.002",
+      "name": "Portable Executable Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.002|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.process.pid,principal.user.userid,target.process.access_mask,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1055_002_v1_telemetry.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: expect type [string], got type int for \"open.udm.target.process.access_mask\" (line 41)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1055.002",
+      "name": "Portable Executable Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.002|PROCESS_LAUNCH,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_002_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.003",
+      "name": "Thread Execution Hijacking",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.003|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,security_result.description,target.process.file.full_path|windows",
+      "file": "T1055_003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.003",
+      "name": "Thread Execution Hijacking",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.003|PROCESS_LAUNCH,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_003_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.004",
+      "name": "Asynchronous Procedure Call",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.004|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.file.full_path,target.resource.attribute.labels.key,target.resource.attribute.labels.value|windows",
+      "file": "T1055_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.004",
+      "name": "Asynchronous Procedure Call",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.004|PROCESS_LAUNCH,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_004_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.005",
+      "name": "Thread Local Storage",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.005|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.file.full_path|windows",
+      "file": "T1055_005_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.005",
+      "name": "Thread Local Storage",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.005|PROCESS_LAUNCH,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_005_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.008",
+      "name": "Ptrace System Calls",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.008|FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1055_008_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.008",
+      "name": "Ptrace System Calls",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.008|FILE_CREATION,FILE_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1055_008_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.009",
+      "name": "Proc Memory",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.009|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1055_009_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.009",
+      "name": "Proc Memory",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.009|FILE_MODIFICATION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.process.pid,target.file.full_path|linux",
+      "file": "T1055_009_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.011",
+      "name": "Extra Window Memory Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.011|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.process.pid,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1055_011_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 2,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.011",
+      "name": "Extra Window Memory Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.011|PROCESS_INJECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.command_line,principal.process.file.full_path,target.process.command_line,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1055_011_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.012",
+      "name": "Process Hollowing",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.012|PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.file.full_path|windows",
+      "file": "T1055_012_v1_telemetry.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"not\"\ninvalid operator in events predicate (line 28)",
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 1,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1055.012",
+      "name": "Process Hollowing",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.012|NETWORK_CONNECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.process.file.full_path|windows",
+      "file": "T1055_012_v2_sequence.yaral",
+      "warnings": [
+        "Windows path/exe regex without case-insensitivity (add 'nocase' or '(?i)')",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    }
+  ]
+}

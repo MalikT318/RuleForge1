@@ -1,0 +1,2243 @@
+{
+  "run_id": "20260909T215010Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 176,
+  "gap_count": 312,
+  "generated": 100,
+  "failed": 0,
+  "with_warnings": 66,
+  "auto_fixed_total": 28,
+  "chronicle_verified_ok": 83,
+  "chronicle_verified_failed": 17,
+  "elapsed_minutes": 33.7,
+  "generated_by_priority_tier": {
+    "Impair Defenses (formerly T1562)": 11,
+    "Obfuscation / Deobfuscation": 40,
+    "Scheduled Tasks / Autostart": 38,
+    "Discovery (System / Network / Account)": 11
+  },
+  "generated_by_platform": {
+    "Linux": 30,
+    "Network Devices": 7,
+    "IaaS": 5,
+    "Windows": 51,
+    "SaaS": 1,
+    "ESXi": 4,
+    "Containers": 2
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1686",
+      "name": "Disable or Modify System Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1686|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|linux",
+      "file": "T1686_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1686",
+      "name": "Disable or Modify System Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1686|NETWORK_FLOW,SETTING_MODIFICATION|metadata.event_type,principal.hostname,principal.ip,principal.user.userid,target.ip,target.port|network devices",
+      "file": "T1686_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1686.001",
+      "name": "Cloud Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "cloud_audit",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1686.001|SETTING_MODIFICATION|metadata.event_type,principal.ip,principal.user.userid,target.resource.attribute.labels,target.resource.resource_type|iaas",
+      "file": "T1686_001_v1_telemetry.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: expect type [string], got type backstory.Resource.ResourceType for \"cloud.udm.target.resource.resource_type\" (line 20)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1686.001",
+      "name": "Cloud Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "cloud_audit",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1686.001|RESOURCE_CREATION,USER_RESOURCE_ACCESS|metadata.event_type,principal.ip,principal.user.userid,security_result.action_details,target.resource.attribute.labels,target.resource.resource_type|iaas",
+      "file": "T1686_001_v2_sequence.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"0\"\nexpected ) (line 23)",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1686.002",
+      "name": "Network Device Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1686.002|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|network devices",
+      "file": "T1686_002_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1686.002",
+      "name": "Network Device Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1686.002|NETWORK_FLOW,SETTING_MODIFICATION|metadata.event_type,principal.hostname,principal.ip,principal.user.userid,target.hostname,target.resource.name|network devices",
+      "file": "T1686_002_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1686.003",
+      "name": "Windows Host Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1686.003|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1686_003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 6,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1686.003",
+      "name": "Windows Host Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1686.003|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.process.pid,target.ip,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1686_003_v2_sequence.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"rule\"\nvariable name should come after '$' (line 17)",
+        "BANNED: hardcoded IP address (169.254.0.0)",
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $rule.target.process.file.full_path = /\\\\netsh\\.exe$/ nocase",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1687",
+      "name": "Exploitation for Defense Impairment",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "priority-gap",
+      "platform": "SaaS",
+      "log_source": "identity",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1687|USER_CHANGE_PERMISSIONS|metadata.event_type,principal.user.userid,security_result.summary,target.resource.name|saas",
+      "file": "T1687_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1687",
+      "name": "Exploitation for Defense Impairment",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-gap",
+      "platform": "IaaS",
+      "log_source": "identity",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1687|USER_CHANGE_PERMISSIONS,USER_RESOURCE_ACCESS|metadata.event_type,principal.user.userid,target.resource.name|iaas",
+      "file": "T1687_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1687",
+      "name": "Exploitation for Defense Impairment",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 3,
+      "pivot": "threshold",
+      "rule_type": "threshold",
+      "population": "priority-gap",
+      "platform": "Windows",
+      "log_source": "identity",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1687|USER_CHANGE_PERMISSIONS|metadata.event_type,principal.user.userid,security_result.description,target.user.attribute.roles.description|windows",
+      "file": "T1687_v3_threshold.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: aggregation cannot refer to outcome variables or contain another aggregation (line 38)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1027",
+      "name": "Obfuscated Files or Information",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "ips",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027|NETWORK_HTTP|metadata.event_type,network.http.request_url,network.http.response_code,network.http.user_agent,principal.ip,target.hostname,target.ip|network devices",
+      "file": "T1027_v1_network.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: getting field descriptors: accessing field \"udm.network.http.request_url\": field \"request_url\" does not exist, valid fields are: \"method\", \"referral_url\", \"user_agent\", \"r (line 33)",
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $net.network.http.request_url = /\\/[A-Za-z0-9+\\/]{40,}={0,2}",
+        "UNKNOWN REFERENCE LIST '%25xx' - must be one of: global_allowed_admin_tools, global_allowed_admin_users, global_allowed_backup_processes, global_allowed_cloud_principals, global_allowed_domains, global_allowed_mgmt_sources, ...",
+        "UDM-CHECK: unverified field path(s): network.http.request_url"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1027",
+      "name": "Obfuscated Files or Information",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027|SETTING_MODIFICATION,USER_LOGIN|metadata.event_type,principal.hostname,principal.ip,principal.user.userid,target.resource.name,target.user.userid|esxi",
+      "file": "T1027_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.001",
+      "name": "Binary Padding",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.001|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path,target.file.size|linux",
+      "file": "T1027_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.001",
+      "name": "Binary Padding",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.001|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.file.size,target.process.file.full_path|windows",
+      "file": "T1027_001_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.002",
+      "name": "Software Packing",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.002|FILE_CREATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1027_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.002",
+      "name": "Software Packing",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.002|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.file.full_path|linux",
+      "file": "T1027_002_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.003",
+      "name": "Steganography",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.003|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1027_003_v1_telemetry.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"]\"\nunexpected token (line 23)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1027.003",
+      "name": "Steganography",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.003|FILE_CREATION,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.ip|windows",
+      "file": "T1027_003_v2_sequence.yaral",
+      "warnings": [
+        "Windows path/exe regex without case-insensitivity (add 'nocase' or '(?i)')",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.004",
+      "name": "Compile After Delivery",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.004|NETWORK_CONNECTION|metadata.event_type,network.sent_bytes,principal.ip,target.hostname,target.ip,target.port|windows",
+      "file": "T1027_004_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.004",
+      "name": "Compile After Delivery",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.004|FILE_CREATION,NETWORK_CONNECTION|metadata.event_type,principal.ip,principal.process.file.full_path,target.domain.name,target.file.full_path,target.ip,target.port|linux",
+      "file": "T1027_004_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.005",
+      "name": "Indicator Removal from Tools",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.005|FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1027_005_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $file.target.file.full_path = /^\\/tmp\\// nocase or"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.005",
+      "name": "Indicator Removal from Tools",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.005|FILE_CREATION,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.registry.registry_key|windows",
+      "file": "T1027_005_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.006",
+      "name": "HTML Smuggling",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.006|NETWORK_HTTP|metadata.event_type,network.http.response_code,network.http.response_content_type,network.received_bytes,principal.ip,target.hostname,target.ip|windows",
+      "file": "T1027_006_v1_network.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: getting field descriptors: accessing field \"udm.network.http.response_content_type\": field \"response_content_type\" does not exist, valid fields are: \"method\", \"referral_ur (line 25)",
+        "UDM-CHECK: unverified field path(s): network.http.response_content_type"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1027.006",
+      "name": "HTML Smuggling",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.006|NETWORK_CONNECTION,NETWORK_HTTP|metadata.event_type,network.http.response_code,network.received_bytes,principal.ip,target.hostname,target.ip,target.url|linux",
+      "file": "T1027_006_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.007",
+      "name": "Dynamic API Resolution",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.007|PROCESS_MODULE_LOAD|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1027_007_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.007",
+      "name": "Dynamic API Resolution",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.007|PROCESS_LAUNCH,PROCESS_MODULE_LOAD|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1027_007_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.008",
+      "name": "Stripped Payloads",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.008|NETWORK_HTTP|metadata.event_type,network.http.request_url,network.http.response_code,principal.ip,target.file.mime_type,target.hostname,target.ip,target.port|linux",
+      "file": "T1027_008_v1_network.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: getting field descriptors: accessing field \"udm.network.http.request_url\": field \"request_url\" does not exist, valid fields are: \"method\", \"referral_url\", \"user_agent\", \"r (line 50)",
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $net.target.file.mime_type = /application\\/octet-stream/ noc",
+        "UDM-CHECK: unverified field path(s): network.http.request_url"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1027.008",
+      "name": "Stripped Payloads",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.008|NETWORK_FLOW,USER_LOGIN|metadata.event_type,network.sent_bytes,principal.hostname,principal.ip,principal.user.userid,target.ip,target.port|network devices",
+      "file": "T1027_008_v2_sequence.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: expect type [string], got type int for \"flow.udm.target.port\" (line 32)",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1027.009",
+      "name": "Embedded Payloads",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.009|FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1027_009_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $file.target.file.full_path = /\\/bin\\// nocase or"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.009",
+      "name": "Embedded Payloads",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.009|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1027_009_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.010",
+      "name": "Command Obfuscation",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.010|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1027_010_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.010",
+      "name": "Command Obfuscation",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.010|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1027_010_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.011",
+      "name": "Fileless Storage",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.011|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key,target.registry.registry_value_data|windows",
+      "file": "T1027_011_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.011",
+      "name": "Fileless Storage",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.011|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.file.full_path|linux",
+      "file": "T1027_011_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.012",
+      "name": "LNK Icon Smuggling",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.012|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1027_012_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.012",
+      "name": "LNK Icon Smuggling",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.012|FILE_CREATION,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.ip|windows",
+      "file": "T1027_012_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.013",
+      "name": "Encrypted/Encoded File",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.013|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|windows",
+      "file": "T1027_013_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.013",
+      "name": "Encrypted/Encoded File",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.013|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.command_line,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|linux",
+      "file": "T1027_013_v2_sequence.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $file.principal.process.file.full_path = /\\/(openssl|gpg|bas",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.014",
+      "name": "Polymorphic Code",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.014|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1027_014_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $file.target.file.full_path = /^\\/tmp\\// nocase or"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.014",
+      "name": "Polymorphic Code",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.014|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1027_014_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.015",
+      "name": "Compression",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.015|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key,target.registry.registry_value_data|windows",
+      "file": "T1027_015_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.015",
+      "name": "Compression",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.015|FILE_CREATION,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.ip|linux",
+      "file": "T1027_015_v2_sequence.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"]\"\nunexpected token (line 22)",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1027.016",
+      "name": "Junk Code Insertion",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.016|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1027_016_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.016",
+      "name": "Junk Code Insertion",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.016|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1027_016_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.017",
+      "name": "SVG Smuggling",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.017|NETWORK_HTTP|metadata.event_type,network.http.request_url,network.http.response_code,network.http.response_headers,principal.ip,target.hostname,target.ip|windows",
+      "file": "T1027_017_v1_network.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: getting field descriptors: accessing field \"udm.network.http.request_url\": field \"request_url\" does not exist, valid fields are: \"method\", \"referral_url\", \"user_agent\", \"r (line 22)",
+        "UDM-CHECK: unverified field path(s): network.http.request_url, network.http.response_headers"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1027.017",
+      "name": "SVG Smuggling",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.017|FILE_CREATION,NETWORK_HTTP|metadata.event_type,network.http.response_body_bytes,network.http.response_code,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.hostname|linux",
+      "file": "T1027_017_v2_sequence.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: getting field descriptors: accessing field \"udm.network.http.response_body_bytes\": field \"response_body_bytes\" does not exist, valid fields are: \"method\", \"referral_url\",  (line 23)",
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $net.target.url = /\\.svg(\\?[^\\s]*)?$/ nocase or",
+        "UDM-CHECK: unverified field path(s): network.http.response_body_bytes, metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1027.018",
+      "name": "Invisible Unicode",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.018|NETWORK_HTTP|metadata.event_type,network.http.user_agent,principal.ip,target.hostname,target.ip,target.url|linux",
+      "file": "T1027_018_v1_network.yaral",
+      "warnings": [
+        "UNKNOWN REFERENCE LIST '%E2' - must be one of: global_allowed_admin_tools, global_allowed_admin_users, global_allowed_backup_processes, global_allowed_cloud_principals, global_allowed_domains, global_allowed_mgmt_sources, ..."
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1027.018",
+      "name": "Invisible Unicode",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.018|FILE_CREATION,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.ip,principal.process.file.full_path,target.file.full_path,target.hostname,target.ip|windows",
+      "file": "T1027_018_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1140",
+      "name": "Deobfuscate/Decode Files or Information",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1140|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1140_v1_telemetry.yaral",
+      "warnings": [
+        "UNKNOWN REFERENCE LIST '%TEMP' - must be one of: global_allowed_admin_tools, global_allowed_admin_users, global_allowed_backup_processes, global_allowed_cloud_principals, global_allowed_domains, global_allowed_mgmt_sources, ..."
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1140",
+      "name": "Deobfuscate/Decode Files or Information",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1140|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.file.full_path|linux",
+      "file": "T1140_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1053",
+      "name": "Scheduled Task/Job",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1053|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|windows",
+      "file": "T1053_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1053",
+      "name": "Scheduled Task/Job",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "container",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1053|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.namespace,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.file.full_path|linux",
+      "file": "T1053_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1053.002",
+      "name": "At",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1053.002|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1053_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1053.002",
+      "name": "At",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1053.002|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1053_002_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1053.003",
+      "name": "Cron",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1053.003|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1053_003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1053.003",
+      "name": "Cron",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1053.003|FILE_MODIFICATION,USER_LOGIN|metadata.event_type,principal.ip,principal.user.userid,target.file.full_path,target.hostname,target.user.userid|esxi",
+      "file": "T1053_003_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1053.005",
+      "name": "Scheduled Task",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1053.005|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|windows",
+      "file": "T1053_005_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1053.005",
+      "name": "Scheduled Task",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1053.005|FILE_CREATION,SCHEDULED_TASK_CREATION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|windows",
+      "file": "T1053_005_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1053.006",
+      "name": "Systemd Timers",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1053.006|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1053_006_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1053.006",
+      "name": "Systemd Timers",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1053.006|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1053_006_v2_sequence.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $file.target.file.full_path = /\\/etc\\/systemd\\/system\\/.*\\.t",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1053.007",
+      "name": "Container Orchestration Job",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Containers",
+      "log_source": "container",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1053.007|RESOURCE_CREATION|metadata.event_type,principal.user.userid,target.resource.name,target.resource.resource_subtype|containers",
+      "file": "T1053_007_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1053.007",
+      "name": "Container Orchestration Job",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Containers",
+      "log_source": "container",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1053.007|RESOURCE_CREATION,USER_RESOURCE_ACCESS|metadata.event_type,principal.user.userid,target.namespace,target.resource.attribute.labels.key,target.resource.attribute.labels.value,target.resource.name,target.resource.type|containers",
+      "file": "T1053_007_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 3,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547",
+      "name": "Boot or Logon Autostart Execution",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "macos_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547|SETTING_MODIFICATION|metadata.event_type,principal.ip,principal.user.userid,target.resource.name|network devices",
+      "file": "T1547_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547",
+      "name": "Boot or Logon Autostart Execution",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547|REGISTRY_MODIFICATION,USER_LOGIN|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.registry.registry_key|windows",
+      "file": "T1547_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 2,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.001",
+      "name": "Registry Run Keys / Startup Folder",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.001|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1547_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.001",
+      "name": "Registry Run Keys / Startup Folder",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.001|REGISTRY_MODIFICATION,USER_LOGIN|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.registry.registry_key|windows",
+      "file": "T1547_001_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.002",
+      "name": "Authentication Package",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.002|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1547_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 2,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.002",
+      "name": "Authentication Package",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.002|FILE_CREATION,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1547_002_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 2,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.003",
+      "name": "Time Providers",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.003|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1547_003_v1_telemetry.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"$\"\ninvalid operator in events predicate (line 19)",
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 1,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1547.003",
+      "name": "Time Providers",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.003|PROCESS_LAUNCH,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1547_003_v2_sequence.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $reg.target.registry.registry_value_name = /dllname/ nocase ",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.004",
+      "name": "Winlogon Helper DLL",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.004|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key,target.registry.registry_value_data,target.registry.registry_value_name|windows",
+      "file": "T1547_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 6,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.004",
+      "name": "Winlogon Helper DLL",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.004|REGISTRY_MODIFICATION,USER_LOGIN|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1547_004_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 2,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.005",
+      "name": "Security Support Provider",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.005|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key|windows",
+      "file": "T1547_005_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.005",
+      "name": "Security Support Provider",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.005|FILE_CREATION,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.registry.registry_key|windows",
+      "file": "T1547_005_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.006",
+      "name": "Kernel Modules and Extensions",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.006|FILE_CREATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1547_006_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.006",
+      "name": "Kernel Modules and Extensions",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.006|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|linux",
+      "file": "T1547_006_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.008",
+      "name": "LSASS Driver",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.008|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1547_008_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.008",
+      "name": "LSASS Driver",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.008|FILE_CREATION,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1547_008_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.009",
+      "name": "Shortcut Modification",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.009|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|windows",
+      "file": "T1547_009_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.009",
+      "name": "Shortcut Modification",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.009|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1547_009_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.010",
+      "name": "Port Monitors",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.010|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key,target.registry.registry_value_data,target.registry.registry_value_name|windows",
+      "file": "T1547_010_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.010",
+      "name": "Port Monitors",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.010|FILE_CREATION,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.registry.registry_key,target.registry.registry_value_data,target.registry.registry_value_name|windows",
+      "file": "T1547_010_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.012",
+      "name": "Print Processors",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.012|REGISTRY_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1547_012_v1_telemetry.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"$\"\ninvalid operator in events predicate (line 19)",
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead",
+        "Windows path/exe regex without case-insensitivity (add 'nocase' or '(?i)')"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1547.012",
+      "name": "Print Processors",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.012|PROCESS_LAUNCH,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1547_012_v2_sequence.yaral",
+      "warnings": [
+        "Windows path/exe regex without case-insensitivity (add 'nocase' or '(?i)')",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.013",
+      "name": "XDG Autostart Entries",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.013|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1547_013_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.013",
+      "name": "XDG Autostart Entries",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.013|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.file.full_path|linux",
+      "file": "T1547_013_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1547.014",
+      "name": "Active Setup",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.014|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key,target.registry.registry_value_data,target.registry.registry_value_name|windows",
+      "file": "T1547_014_v1_telemetry.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"$\"\ninvalid operator in events predicate (line 21)",
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 1,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1547.014",
+      "name": "Active Setup",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.014|REGISTRY_MODIFICATION,USER_LOGIN|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1547_014_v2_sequence.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"$\"\ninvalid operator in events predicate (line 20)",
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 1,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1016|NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.ip,target.ip,target.port|windows",
+      "file": "T1016_v1_network.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"$\"\nproblem parsing function (line 34)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1016|NETWORK_CONNECTION,NETWORK_DNS|metadata.event_type,principal.ip,target.ip|linux",
+      "file": "T1016_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1016.001",
+      "name": "Internet Connection Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1016.001|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1016_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1016.001",
+      "name": "Internet Connection Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1016.001|PROCESS_LAUNCH,USER_LOGIN|metadata.event_type,principal.hostname,principal.ip,principal.process.file.full_path,principal.user.userid,target.hostname,target.process.command_line,target.process.file.full_path|esxi",
+      "file": "T1016_001_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1016.002",
+      "name": "Wi-Fi Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1016.002|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1016_002_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> or $file.target.file.full_path = /\\\\WLAN.*\\.xml$/  nocase"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1016.002",
+      "name": "Wi-Fi Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1016.002|FILE_CREATION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1016_002_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "cloud_audit",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1082|USER_RESOURCE_ACCESS|metadata.event_type,principal.user.userid,target.application,target.resource.name|iaas",
+      "file": "T1082_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1082|NETWORK_FLOW,USER_LOGIN|metadata.event_type,principal.ip,principal.user.userid,target.ip,target.port|network devices",
+      "file": "T1082_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1087",
+      "name": "Account Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "identity",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1087|USER_RESOURCE_ACCESS|metadata.event_type,metadata.product_event_type,principal.user.userid,target.resource.type|iaas",
+      "file": "T1087_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1087",
+      "name": "Account Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1087|PROCESS_LAUNCH,USER_LOGIN|metadata.event_type,principal.hostname,principal.ip,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path,target.user.userid|esxi",
+      "file": "T1087_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1087.001",
+      "name": "Local Account",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1087.001|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|windows",
+      "file": "T1087_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    }
+  ]
+}

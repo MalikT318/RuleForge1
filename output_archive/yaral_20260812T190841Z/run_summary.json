@@ -1,0 +1,383 @@
+{
+  "run_id": "20260812T190841Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 178,
+  "gap_count": 113,
+  "generated": 13,
+  "failed": 0,
+  "with_warnings": 2,
+  "auto_fixed_total": 5,
+  "elapsed_minutes": 5.6,
+  "generated_by_priority_tier": {
+    "Obfuscation / Deobfuscation": 1,
+    "Scheduled Tasks / Autostart": 8,
+    "Unprioritized (long tail)": 4
+  },
+  "generated_by_platform": {
+    "macOS": 8,
+    "Windows": 5
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1027.012",
+      "name": "LNK Icon Smuggling",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 7,
+      "declined": true
+    },
+    {
+      "id": "T1027.013",
+      "name": "Encrypted/Encoded File",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 7,
+      "declined": true
+    },
+    {
+      "id": "T1140",
+      "name": "Deobfuscate/Decode Files or Information",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1140|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|macos",
+      "file": "T1140_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1547.001",
+      "name": "Registry Run Keys / Startup Folder",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 8,
+      "declined": true
+    },
+    {
+      "id": "T1547.002",
+      "name": "Authentication Package",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 8,
+      "declined": true
+    },
+    {
+      "id": "T1547.003",
+      "name": "Time Providers",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 8,
+      "declined": true
+    },
+    {
+      "id": "T1547.004",
+      "name": "Winlogon Helper DLL",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 8,
+      "declined": true
+    },
+    {
+      "id": "T1547.005",
+      "name": "Security Support Provider",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 8,
+      "declined": true
+    },
+    {
+      "id": "T1547.006",
+      "name": "Kernel Modules and Extensions",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.006|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|macos",
+      "file": "T1547_006_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1547.007",
+      "name": "Re-opened Applications",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.007|FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|macos",
+      "file": "T1547_007_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1547.007",
+      "name": "Re-opened Applications",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.007|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.file.full_path|macos",
+      "file": "T1547_007_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1547.008",
+      "name": "LSASS Driver",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "identity",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.008|USER_CHANGE_PERMISSIONS,USER_LOGIN|metadata.event_type,principal.user.userid,target.user.userid|windows",
+      "file": "T1547_008_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1547.009",
+      "name": "Shortcut Modification",
+      "variant": 2,
+      "pivot": "sequence",
+      "priority_tier": 8,
+      "declined": true
+    },
+    {
+      "id": "T1547.012",
+      "name": "Print Processors",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "identity",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.012|REGISTRY_MODIFICATION,USER_LOGIN|metadata.event_type,principal.hostname,principal.user.userid,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1547_012_v2_sequence.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1547.014",
+      "name": "Active Setup",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.014|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1547_014_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1547.015",
+      "name": "Login Items",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.015|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|macos",
+      "file": "T1547_015_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1547.015",
+      "name": "Login Items",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.015|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|macos",
+      "file": "T1547_015_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1011.001",
+      "name": "Exfiltration Over Bluetooth",
+      "variant": 1,
+      "pivot": "baseline",
+      "priority_tier": 999,
+      "declined": true
+    },
+    {
+      "id": "T1014",
+      "name": "Rootkit",
+      "variant": 1,
+      "pivot": "baseline",
+      "priority_tier": 999,
+      "declined": true
+    },
+    {
+      "id": "T1025",
+      "name": "Data from Removable Media",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1025|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|macos",
+      "file": "T1025_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1030",
+      "name": "Data Transfer Size Limits",
+      "tactics": [
+        "exfiltration"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1030|NETWORK_FLOW|metadata.event_type,network.sent_bytes,principal.port,target.hostname,target.ip,target.port|windows",
+      "file": "T1030_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1037.003",
+      "name": "Network Logon Script",
+      "variant": 1,
+      "pivot": "baseline",
+      "priority_tier": 999,
+      "declined": true
+    },
+    {
+      "id": "T1037.005",
+      "name": "Startup Items",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1037.005|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|macos",
+      "file": "T1037_005_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1052",
+      "name": "Exfiltration Over Physical Medium",
+      "variant": 1,
+      "pivot": "baseline",
+      "priority_tier": 999,
+      "declined": true
+    },
+    {
+      "id": "T1114.001",
+      "name": "Local Email Collection",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1114.001|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1114_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 3
+    }
+  ]
+}

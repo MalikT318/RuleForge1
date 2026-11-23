@@ -1,0 +1,94 @@
+{
+  "run_id": "20261028T184630Z",
+  "in_progress": true,
+  "completed": 4,
+  "planned": 2090,
+  "results": [
+    {
+      "id": "T1055",
+      "name": "Process Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055|FILE_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1055_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055",
+      "name": "Process Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055|NETWORK_CONNECTION,PROCESS_INJECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.process.file.full_path|windows",
+      "file": "T1055_v2_sequence.yaral",
+      "warnings": [
+        "UDM: 'metadata.event_timestamp.seconds' - 'metadata.event_timestamp' exists but has no field 'seconds'"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055",
+      "name": "Process Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 3,
+      "pivot": "lineage",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|linux",
+      "file": "T1055_v3_lineage.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055",
+      "name": "Process Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 4,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055|NETWORK_CONNECTION|metadata.event_type,principal.process.file.full_path,target.hostname,target.ip|windows",
+      "file": "T1055_v4_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    }
+  ]
+}

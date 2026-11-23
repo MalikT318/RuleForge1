@@ -1,0 +1,2009 @@
+{
+  "run_id": "20260812T193719Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 176,
+  "gap_count": 514,
+  "generated": 100,
+  "failed": 0,
+  "with_warnings": 8,
+  "auto_fixed_total": 77,
+  "elapsed_minutes": 35.6,
+  "generated_by_priority_tier": {
+    "Process Injection": 26,
+    "Command and Scripting Interpreter": 28,
+    "Valid Accounts (incl. cloud)": 10,
+    "Credential Dumping / Password Stores": 32,
+    "App-layer C2 and Ingress Tool Transfer": 4
+  },
+  "generated_by_platform": {
+    "macOS": 12,
+    "Windows": 47,
+    "Linux": 20,
+    "Identity Provider": 2,
+    "Network Devices": 4,
+    "ESXi": 4,
+    "SaaS": 3,
+    "IaaS": 4,
+    "Containers": 2,
+    "Office Suite": 2
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1055",
+      "name": "Process Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|macos",
+      "file": "T1055_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055",
+      "name": "Process Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055|NETWORK_CONNECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.port,target.process.file.full_path|windows",
+      "file": "T1055_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1055.001",
+      "name": "Dynamic-link Library Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.001|PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.001",
+      "name": "Dynamic-link Library Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.001|PROCESS_INJECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_001_v2_sequence.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1055.002",
+      "name": "Portable Executable Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.002|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,target.process.access_mask,target.process.file.full_path|windows",
+      "file": "T1055_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1055.002",
+      "name": "Portable Executable Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.002|PROCESS_INJECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.process.pid,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1055_002_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.003",
+      "name": "Thread Execution Hijacking",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.003|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.process.pid,target.process.file.full_path,target.process.pid,target.resource.attribute.labels.key,target.resource.attribute.labels.value|windows",
+      "file": "T1055_003_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 4
+    },
+    {
+      "id": "T1055.003",
+      "name": "Thread Execution Hijacking",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.003|PROCESS_LAUNCH,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_003_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1055.004",
+      "name": "Asynchronous Procedure Call",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.004|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.process.pid,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1055_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.004",
+      "name": "Asynchronous Procedure Call",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.004|PROCESS_LAUNCH,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1055_004_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.005",
+      "name": "Thread Local Storage",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.005|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_005_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.005",
+      "name": "Thread Local Storage",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.005|PROCESS_LAUNCH,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_005_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.008",
+      "name": "Ptrace System Calls",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.008|FILE_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1055_008_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.008",
+      "name": "Ptrace System Calls",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.008|FILE_READ,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.process.pid,target.file.full_path,target.process.file.full_path|linux",
+      "file": "T1055_008_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.009",
+      "name": "Proc Memory",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.009|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1055_009_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.009",
+      "name": "Proc Memory",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.009|FILE_MODIFICATION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1055_009_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.011",
+      "name": "Extra Window Memory Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.011|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.file.full_path|windows",
+      "file": "T1055_011_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 2
+    },
+    {
+      "id": "T1055.011",
+      "name": "Extra Window Memory Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.011|NETWORK_CONNECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.port,target.process.file.full_path|windows",
+      "file": "T1055_011_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.012",
+      "name": "Process Hollowing",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.012|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,target.process.access_mask,target.process.file.full_path|windows",
+      "file": "T1055_012_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 3
+    },
+    {
+      "id": "T1055.012",
+      "name": "Process Hollowing",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.012|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.process.file.full_path|windows",
+      "file": "T1055_012_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.013",
+      "name": "Process Doppelg\u00e4nging",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.013|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.process.pid,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1055_013_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.013",
+      "name": "Process Doppelg\u00e4nging",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.013|PROCESS_LAUNCH,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_013_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.014",
+      "name": "VDSO Hijacking",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.014|FILE_CREATION,FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1055_014_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.014",
+      "name": "VDSO Hijacking",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.014|FILE_CREATION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1055_014_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.015",
+      "name": "ListPlanting",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.015|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_015_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1055.015",
+      "name": "ListPlanting",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.015|PROCESS_LAUNCH,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_015_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059",
+      "name": "Command and Scripting Interpreter",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059|NETWORK_CONNECTION|metadata.event_type,network.sent_bytes,principal.ip,target.ip,target.port|linux",
+      "file": "T1059_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059",
+      "name": "Command and Scripting Interpreter",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Identity Provider",
+      "log_source": "vmware_esxi",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059|SETTING_MODIFICATION,USER_LOGIN|metadata.event_type,principal.hostname,principal.user.userid,security_result.summary,target.hostname,target.resource.name|identity provider",
+      "file": "T1059_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 2
+    },
+    {
+      "id": "T1059.001",
+      "name": "PowerShell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.001|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1059_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.001",
+      "name": "PowerShell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.001|FILE_CREATION,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.ip,target.port|windows",
+      "file": "T1059_001_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.002",
+      "name": "AppleScript",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.002|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|macos",
+      "file": "T1059_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.002",
+      "name": "AppleScript",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.002|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.command_line,target.process.file.full_path|macos",
+      "file": "T1059_002_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.003",
+      "name": "Windows Command Shell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.003|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1059_003_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 2
+    },
+    {
+      "id": "T1059.003",
+      "name": "Windows Command Shell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.003|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1059_003_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 6
+    },
+    {
+      "id": "T1059.004",
+      "name": "Unix Shell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.004|NETWORK_CONNECTION|metadata.event_type,network.ip_protocol,principal.ip,target.ip,target.port|network devices",
+      "file": "T1059_004_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.004",
+      "name": "Unix Shell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "firewall",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.004|NETWORK_CONNECTION,NETWORK_FLOW|metadata.event_type,network.ip_protocol,network.received_bytes,network.sent_bytes,principal.ip,target.ip,target.port|macos",
+      "file": "T1059_004_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.005",
+      "name": "Visual Basic",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.005|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1059_005_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1059.005",
+      "name": "Visual Basic",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.005|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1059_005_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.006",
+      "name": "Python",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.006|FILE_CREATION|metadata.event_type,principal.user.userid,target.file.full_path|esxi",
+      "file": "T1059_006_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.006",
+      "name": "Python",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.006|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1059_006_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.007",
+      "name": "JavaScript",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.007|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|macos",
+      "file": "T1059_007_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.007",
+      "name": "JavaScript",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.007|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.process.pid,target.file.full_path,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1059_007_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.008",
+      "name": "Network Device CLI",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.008|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|network devices",
+      "file": "T1059_008_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.008",
+      "name": "Network Device CLI",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.008|SETTING_MODIFICATION,USER_LOGIN|metadata.event_type,principal.ip,principal.user.userid,target.hostname|network devices",
+      "file": "T1059_008_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.009",
+      "name": "Cloud API",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "SaaS",
+      "log_source": "identity",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.009|USER_CHANGE_PERMISSIONS|metadata.event_type,principal.user.user_display_name,principal.user.userid,target.resource.name,target.user.attribute.roles|saas",
+      "file": "T1059_009_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 3
+    },
+    {
+      "id": "T1059.009",
+      "name": "Cloud API",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "identity",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.009|USER_CHANGE_PERMISSIONS,USER_LOGIN|extensions.auth.auth_details,metadata.event_type,principal.user.userid|iaas",
+      "file": "T1059_009_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.010",
+      "name": "AutoHotKey & AutoIT",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.010|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1059_010_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.010",
+      "name": "AutoHotKey & AutoIT",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.010|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.pid|windows",
+      "file": "T1059_010_v2_sequence.yaral",
+      "warnings": [
+        "join variable '$child_pid' missing from match block (Cartesian explosion risk)"
+      ],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.011",
+      "name": "Lua",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "firewall",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.011|NETWORK_CONNECTION|metadata.event_type,network.sent_bytes,principal.ip,target.ip,target.port|macos",
+      "file": "T1059_011_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.011",
+      "name": "Lua",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.011|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,target.ip,target.process.file.full_path|windows",
+      "file": "T1059_011_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1059.012",
+      "name": "Hypervisor CLI",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.012|FILE_MODIFICATION|metadata.event_type,principal.user.userid,target.file.full_path|esxi",
+      "file": "T1059_012_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.012",
+      "name": "Hypervisor CLI",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.012|PROCESS_LAUNCH,USER_LOGIN|metadata.event_type,principal.hostname,principal.user.userid,target.hostname,target.process.file.full_path|esxi",
+      "file": "T1059_012_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.013",
+      "name": "Container CLI/API",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Containers",
+      "log_source": "cloud_audit",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.013|USER_RESOURCE_ACCESS|metadata.event_type,metadata.product_event_type,principal.user.userid,target.resource.attribute.labels,target.resource.resource_type|containers",
+      "file": "T1059_013_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1059.013",
+      "name": "Container CLI/API",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Containers",
+      "log_source": "cloud_audit",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.013|RESOURCE_CREATION,USER_RESOURCE_ACCESS|metadata.description,metadata.event_type,principal.user.userid,target.resource.name,target.resource.type|containers",
+      "file": "T1059_013_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 4
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Identity Provider",
+      "log_source": "identity",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078|USER_LOGIN|metadata.event_type,principal.user.userid,security_result.action,security_result.description,security_result.summary|identity provider",
+      "file": "T1078_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 8
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Office Suite",
+      "log_source": "identity",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078|GROUP_MODIFICATION,USER_LOGIN|metadata.event_type,principal.user.userid,security_result.summary,target.group.group_display_name,target.user.userid|office suite",
+      "file": "T1078_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1078.001",
+      "name": "Default Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Office Suite",
+      "log_source": "identity",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.001|USER_LOGIN|metadata.event_type,principal.hostname,principal.user.userid|office suite",
+      "file": "T1078_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1078.001",
+      "name": "Default Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "SaaS",
+      "log_source": "identity",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.001|USER_CHANGE_PERMISSIONS,USER_LOGIN|metadata.event_type,principal.ip,principal.user.userid|saas",
+      "file": "T1078_001_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1078.002",
+      "name": "Domain Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.002|USER_LOGIN|extensions.auth.auth_details,metadata.event_type,principal.hostname,target.hostname,target.user.user_display_name,target.user.userid,target.user.windows_sid|windows",
+      "file": "T1078_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1078.002",
+      "name": "Domain Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.002|FILE_MODIFICATION,USER_LOGIN|metadata.event_type,principal.hostname,principal.user.userid,target.file.full_path|linux",
+      "file": "T1078_002_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1078.003",
+      "name": "Local Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "identity",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.003|USER_CHANGE_PERMISSIONS|metadata.event_type,principal.user.userid,target.user.attribute.roles,target.user.userid|esxi",
+      "file": "T1078_003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 8
+    },
+    {
+      "id": "T1078.003",
+      "name": "Local Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "identity",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.003|GROUP_MODIFICATION,USER_CHANGE_PERMISSIONS,USER_LOGIN|metadata.event_type,principal.user.userid,target.hostname|windows",
+      "file": "T1078_003_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1078.004",
+      "name": "Cloud Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "SaaS",
+      "log_source": "identity",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.004|USER_CHANGE_PERMISSIONS|metadata.event_type,principal.user.userid,target.user.role_name,target.user.userid|saas",
+      "file": "T1078_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 8
+    },
+    {
+      "id": "T1078.004",
+      "name": "Cloud Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "identity",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.004|USER_CHANGE_PERMISSIONS,USER_LOGIN|metadata.event_type,principal.user.userid,target.user.userid|iaas",
+      "file": "T1078_004_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1003",
+      "name": "OS Credential Dumping",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1003",
+      "name": "OS Credential Dumping",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003|FILE_CREATION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|macos",
+      "file": "T1003_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1003.001",
+      "name": "LSASS Memory",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.001|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1003_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1003.001",
+      "name": "LSASS Memory",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.001|FILE_CREATION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1003_001_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1003.002",
+      "name": "Security Account Manager",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.002|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1003_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1003.002",
+      "name": "Security Account Manager",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.002|FILE_CREATION,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.registry.registry_key|windows",
+      "file": "T1003_002_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 2
+    },
+    {
+      "id": "T1003.003",
+      "name": "NTDS",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.003|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1003_003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 4
+    },
+    {
+      "id": "T1003.003",
+      "name": "NTDS",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.003|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1003_003_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 2
+    },
+    {
+      "id": "T1003.004",
+      "name": "LSA Secrets",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.004|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key|windows",
+      "file": "T1003_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1003.004",
+      "name": "LSA Secrets",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.004|FILE_CREATION,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.registry.registry_key|windows",
+      "file": "T1003_004_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 2
+    },
+    {
+      "id": "T1003.005",
+      "name": "Cached Domain Credentials",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.005|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1003_005_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1003.005",
+      "name": "Cached Domain Credentials",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.005|PROCESS_LAUNCH,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path,target.registry.registry_key|windows",
+      "file": "T1003_005_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1003.006",
+      "name": "DCSync",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.006|NETWORK_CONNECTION|metadata.event_type,network.ip_protocol,principal.ip,target.ip,target.port|windows",
+      "file": "T1003_006_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1003.006",
+      "name": "DCSync",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "ips",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.006|NETWORK_CONNECTION,NETWORK_FLOW|metadata.event_type,network.sent_bytes,principal.ip,target.hostname,target.port|windows",
+      "file": "T1003_006_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1003.007",
+      "name": "Proc Filesystem",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.007|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1003_007_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1003.007",
+      "name": "Proc Filesystem",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.007|FILE_CREATION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1003_007_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1003.008",
+      "name": "/etc/passwd and /etc/shadow",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.008|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1003_008_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1003.008",
+      "name": "/etc/passwd and /etc/shadow",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.008|FILE_CREATION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1003_008_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555",
+      "name": "Credentials from Password Stores",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1555_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555",
+      "name": "Credentials from Password Stores",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555|FILE_CREATION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1555_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.001",
+      "name": "Keychain",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.001|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|macos",
+      "file": "T1555_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.001",
+      "name": "Keychain",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.001|FILE_READ,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.file.full_path|macos",
+      "file": "T1555_001_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.002",
+      "name": "Securityd Memory",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.002|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1555_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.002",
+      "name": "Securityd Memory",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.002|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.command_line,target.process.file.full_path|macos",
+      "file": "T1555_002_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.003",
+      "name": "Credentials from Web Browsers",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.003|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|macos",
+      "file": "T1555_003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.003",
+      "name": "Credentials from Web Browsers",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.003|FILE_READ,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.ip,target.port|windows",
+      "file": "T1555_003_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.004",
+      "name": "Windows Credential Manager",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.004|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1555_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.004",
+      "name": "Windows Credential Manager",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.004|FILE_READ,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1555_004_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 4
+    },
+    {
+      "id": "T1555.005",
+      "name": "Password Managers",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.005|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1555_005_v1_telemetry.yaral",
+      "warnings": [
+        "BANNED: named attacker tool 'rclone' in detection logic"
+      ],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.005",
+      "name": "Password Managers",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.005|FILE_READ,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|macos",
+      "file": "T1555_005_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.006",
+      "name": "Cloud Secrets Management Stores",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "cloud_audit",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.006|USER_RESOURCE_ACCESS|metadata.event_type,metadata.product_event_type,principal.user.userid,target.resource.name|iaas",
+      "file": "T1555_006_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 2
+    },
+    {
+      "id": "T1555.006",
+      "name": "Cloud Secrets Management Stores",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "cloud_audit",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.006|RESOURCE_PERMISSIONS_CHANGE,USER_RESOURCE_ACCESS|metadata.event_type,principal.user.userid,target.resource.attribute.labels.key,target.resource.attribute.labels.value,target.resource.name|iaas",
+      "file": "T1555_006_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071",
+      "name": "Application Layer Protocol",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|windows",
+      "file": "T1071_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071",
+      "name": "Application Layer Protocol",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071|NETWORK_CONNECTION,NETWORK_FLOW|metadata.event_type,network.sent_bytes,principal.ip,target.ip,target.port|linux",
+      "file": "T1071_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.001",
+      "name": "Web Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.001|NETWORK_HTTP|metadata.event_type,network.http.request_url,network.http.user_agent,target.hostname,target.ip,target.port|linux",
+      "file": "T1071_001_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.001",
+      "name": "Web Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.001|NETWORK_CONNECTION,USER_LOGIN|metadata.event_type,principal.hostname,principal.ip,principal.user.userid,target.hostname,target.ip,target.port|network devices",
+      "file": "T1071_001_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    }
+  ]
+}

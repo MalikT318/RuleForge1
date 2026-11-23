@@ -1,0 +1,142 @@
+{
+  "run_id": "20260825T194234Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 176,
+  "gap_count": 404,
+  "generated": 6,
+  "failed": 0,
+  "with_warnings": 0,
+  "auto_fixed_total": 18,
+  "elapsed_minutes": 2.0,
+  "generated_by_priority_tier": {
+    "Impair Defenses (formerly T1562)": 6
+  },
+  "generated_by_platform": {
+    "IaaS": 1,
+    "Containers": 1,
+    "Windows": 2,
+    "Identity Provider": 1,
+    "Office Suite": 1
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1685",
+      "name": "Disable or Modify Tools",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "cloud_audit",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685|SETTING_MODIFICATION|metadata.event_type,principal.user.userid,target.resource.name|iaas",
+      "file": "T1685_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 4
+    },
+    {
+      "id": "T1685",
+      "name": "Disable or Modify Tools",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Containers",
+      "log_source": "cloud_audit",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685|RESOURCE_DELETION,USER_RESOURCE_ACCESS|metadata.event_type,principal.user.userid,target.resource.name|containers",
+      "file": "T1685_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1685.001",
+      "name": "Disable or Modify Windows Event Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.001|REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.user.userid,target.registry.registry_key,target.registry.registry_value_data,target.registry.registry_value_name|windows",
+      "file": "T1685_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 2
+    },
+    {
+      "id": "T1685.001",
+      "name": "Disable or Modify Windows Event Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.001|PROCESS_LAUNCH,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1685_001_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 2
+    },
+    {
+      "id": "T1685.002",
+      "name": "Disable or Modify Cloud Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Identity Provider",
+      "log_source": "m365",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.002|SETTING_MODIFICATION|metadata.event_type,principal.ip,principal.user.userid,security_result.description,target.resource.attribute.labels.key,target.resource.attribute.labels.value,target.resource.name|identity provider",
+      "file": "T1685_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 10
+    },
+    {
+      "id": "T1685.002",
+      "name": "Disable or Modify Cloud Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Office Suite",
+      "log_source": "m365",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.002|SETTING_MODIFICATION,USER_RESOURCE_ACCESS|metadata.description,metadata.event_type,principal.user.userid,target.user.userid|office suite",
+      "file": "T1685_002_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    }
+  ]
+}

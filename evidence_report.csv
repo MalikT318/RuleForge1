@@ -1,0 +1,444 @@
+﻿rule,technique,in_scenario,precision,verdict,reason,mal,ben
+T1001_001_v1_baseline.yaral,T1001.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1001_002_v1_baseline.yaral,T1001.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 1 unevaluated condition(s): a looser version still matched nothing,0,0
+T1001_003_v1_baseline.yaral,T1001.003,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1001_v1_baseline.yaral,T1001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 19 unevaluated condition(s): a looser version still matched nothing,0,0
+T1003_001_v1_telemetry.yaral,T1003.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1003_001_v2_sequence.yaral,T1003.001,False,,NOT EVALUATED,correlation rule,0,0
+T1003_002_v1_telemetry.yaral,T1003.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1003_002_v2_sequence.yaral,T1003.002,False,,NOT EVALUATED,correlation rule,0,0
+T1003_003_v1_telemetry.yaral,T1003.003,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1003_003_v2_sequence.yaral,T1003.003,False,,NOT EVALUATED,correlation rule,0,0
+T1003_004_v1_telemetry.yaral,T1003.004,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1003_004_v2_sequence.yaral,T1003.004,False,,NOT EVALUATED,correlation rule,0,0
+T1003_005_v1_telemetry.yaral,T1003.005,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1003_005_v2_sequence.yaral,T1003.005,False,,NOT EVALUATED,correlation rule,0,0
+T1003_006_v1_network.yaral,T1003.006,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 7 unevaluated condition(s): a looser version still matched nothing,0,0
+T1003_006_v2_sequence.yaral,T1003.006,False,,NOT EVALUATED,correlation rule,0,0
+T1003_007_v1_telemetry.yaral,T1003.007,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 1 unevaluated condition(s): a looser version still matched nothing,0,0
+T1003_007_v2_sequence.yaral,T1003.007,False,,NOT EVALUATED,correlation rule,0,0
+T1003_008_v1_telemetry.yaral,T1003.008,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1003_008_v2_sequence.yaral,T1003.008,False,,NOT EVALUATED,correlation rule,0,0
+T1003_v1_telemetry.yaral,T1003,False,0.0,NOISY,"28 benign hits, no storyline (6.3% of PROCESS_OPEN events)",0,28
+T1003_v2_sequence.yaral,T1003,False,,NOT EVALUATED,correlation rule,0,0
+T1006_v1_baseline.yaral,T1006,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 7 unevaluated condition(s): a looser version still matched nothing,0,0
+T1007_v1_baseline.yaral,T1007,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 25 unevaluated condition(s): a looser version still matched nothing,0,0
+T1008_v1_baseline.yaral,T1008,False,0.0,INCONCLUSIVE,upper bound only: 0 storyline / 1 benign with 8 condition(s) not evaluated - real rule matches at most this,0,1
+T1011_001_v1_baseline.yaral,T1011.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 22 unevaluated condition(s): a looser version still matched nothing,0,0
+T1011_v1_baseline.yaral,T1011,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1014_v1_baseline.yaral,T1014,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1016_001_v1_telemetry.yaral,T1016.001,True,0.0,MISSED,technique is in the scenario but rule never fired,0,0
+T1016_001_v2_sequence.yaral,T1016.001,True,,NOT EVALUATED,correlation rule,0,0
+T1016_002_v1_telemetry.yaral,T1016.002,True,0.0,MISSED,technique is in the scenario but rule never fired | reliable despite 4 unevaluated condition(s): a looser version still matched nothing,0,0
+T1016_002_v2_sequence.yaral,T1016.002,True,,NOT EVALUATED,correlation rule,0,0
+T1016_v1_network.yaral,T1016,True,0.0,MISSED,technique is in the scenario but rule never fired,0,0
+T1016_v2_sequence.yaral,T1016,True,,NOT EVALUATED,correlation rule,0,0
+T1025_v1_baseline.yaral,T1025,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1027_001_v1_telemetry.yaral,T1027.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1027_001_v2_sequence.yaral,T1027.001,False,,NOT EVALUATED,correlation rule,0,0
+T1027_002_v1_telemetry.yaral,T1027.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1027_002_v2_sequence.yaral,T1027.002,False,,NOT EVALUATED,correlation rule,0,0
+T1027_003_v1_telemetry.yaral,T1027.003,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1027_003_v2_sequence.yaral,T1027.003,False,,NOT EVALUATED,correlation rule,0,0
+T1027_004_v1_network.yaral,T1027.004,False,0.0,INCONCLUSIVE,upper bound only: 0 storyline / 5 benign with 6 condition(s) not evaluated - real rule matches at most this,0,5
+T1027_004_v2_sequence.yaral,T1027.004,False,,NOT EVALUATED,correlation rule,0,0
+T1027_005_v1_telemetry.yaral,T1027.005,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1027_005_v2_sequence.yaral,T1027.005,False,,NOT EVALUATED,correlation rule,0,0
+T1027_006_v1_network.yaral,T1027.006,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1027_006_v2_sequence.yaral,T1027.006,False,,NOT EVALUATED,correlation rule,0,0
+T1027_007_v1_telemetry.yaral,T1027.007,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1027_007_v2_sequence.yaral,T1027.007,False,,NOT EVALUATED,correlation rule,0,0
+T1027_008_v1_network.yaral,T1027.008,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1027_008_v2_sequence.yaral,T1027.008,False,,NOT EVALUATED,correlation rule,0,0
+T1027_009_v1_telemetry.yaral,T1027.009,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1027_009_v2_sequence.yaral,T1027.009,False,,NOT EVALUATED,correlation rule,0,0
+T1027_010_v1_telemetry.yaral,T1027.010,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 15 unevaluated condition(s): a looser version still matched nothing,0,0
+T1027_010_v2_sequence.yaral,T1027.010,False,,NOT EVALUATED,correlation rule,0,0
+T1027_011_v1_telemetry.yaral,T1027.011,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1027_011_v2_sequence.yaral,T1027.011,False,,NOT EVALUATED,correlation rule,0,0
+T1027_012_v1_telemetry.yaral,T1027.012,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 2 unevaluated condition(s): a looser version still matched nothing,0,0
+T1027_012_v2_sequence.yaral,T1027.012,False,,NOT EVALUATED,correlation rule,0,0
+T1027_013_v1_telemetry.yaral,T1027.013,False,0.0,NOISY,"2 benign hits, no storyline (15.4% of FILE_CREATION events)",0,2
+T1027_013_v2_sequence.yaral,T1027.013,False,,NOT EVALUATED,correlation rule,0,0
+T1027_014_v1_telemetry.yaral,T1027.014,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1027_014_v2_sequence.yaral,T1027.014,False,,NOT EVALUATED,correlation rule,0,0
+T1027_015_v1_telemetry.yaral,T1027.015,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1027_015_v2_sequence.yaral,T1027.015,False,,NOT EVALUATED,correlation rule,0,0
+T1027_016_v1_telemetry.yaral,T1027.016,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1027_016_v2_sequence.yaral,T1027.016,False,,NOT EVALUATED,correlation rule,0,0
+T1027_017_v1_network.yaral,T1027.017,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1027_017_v2_sequence.yaral,T1027.017,False,,NOT EVALUATED,correlation rule,0,0
+T1027_018_v1_network.yaral,T1027.018,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1027_018_v2_sequence.yaral,T1027.018,False,,NOT EVALUATED,correlation rule,0,0
+T1027_v1_network.yaral,T1027,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1027_v2_sequence.yaral,T1027,False,,NOT EVALUATED,correlation rule,0,0
+T1029_v1_baseline.yaral,T1029,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1030_v1_baseline.yaral,T1030,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1037_001_v1_baseline.yaral,T1037.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1037_003_v1_baseline.yaral,T1037.003,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 4 unevaluated condition(s): a looser version still matched nothing,0,0
+T1037_004_v1_baseline.yaral,T1037.004,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1037_v1_baseline.yaral,T1037,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 11 unevaluated condition(s): a looser version still matched nothing,0,0
+T1039_v1_baseline.yaral,T1039,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1041_v1_network.yaral,T1041,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1041_v2_sequence.yaral,T1041,False,,NOT EVALUATED,correlation rule,0,0
+T1052_001_v1_baseline.yaral,T1052.001,False,0.071,INCONCLUSIVE,upper bound only: 1 storyline / 13 benign with 1 condition(s) not evaluated - real rule matches at most this,1,13
+T1052_v1_baseline.yaral,T1052,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1053_002_v1_telemetry.yaral,T1053.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1053_002_v2_sequence.yaral,T1053.002,False,,NOT EVALUATED,correlation rule,0,0
+T1053_003_v1_telemetry.yaral,T1053.003,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 1 unevaluated condition(s): a looser version still matched nothing,0,0
+T1053_003_v2_sequence.yaral,T1053.003,False,,NOT EVALUATED,correlation rule,0,0
+T1053_005_v1_telemetry.yaral,T1053.005,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1053_005_v2_sequence.yaral,T1053.005,False,,NOT EVALUATED,correlation rule,0,0
+T1053_006_v1_telemetry.yaral,T1053.006,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 7 unevaluated condition(s): a looser version still matched nothing,0,0
+T1053_006_v2_sequence.yaral,T1053.006,False,,NOT EVALUATED,correlation rule,0,0
+T1053_007_v1_telemetry.yaral,T1053.007,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1053_007_v2_sequence.yaral,T1053.007,False,,NOT EVALUATED,correlation rule,0,0
+T1053_v1_telemetry.yaral,T1053,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 1 unevaluated condition(s): a looser version still matched nothing,0,0
+T1053_v2_sequence.yaral,T1053,False,,NOT EVALUATED,correlation rule,0,0
+T1055_001_v1_telemetry.yaral,T1055.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1055_001_v2_sequence.yaral,T1055.001,False,,NOT EVALUATED,correlation rule,0,0
+T1055_001_v3_lineage.yaral,T1055.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1055_001_v4_network.yaral,T1055.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1055_001_v5_platform.yaral,T1055.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 11 unevaluated condition(s): a looser version still matched nothing,0,0
+T1055_002_v1_telemetry.yaral,T1055.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1055_002_v2_sequence.yaral,T1055.002,False,,NOT EVALUATED,correlation rule,0,0
+T1055_002_v3_lineage.yaral,T1055.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1055_002_v4_network.yaral,T1055.002,False,0.022,INCONCLUSIVE,upper bound only: 10 storyline / 454 benign with 1 condition(s) not evaluated - real rule matches at most this,10,454
+T1055_002_v5_platform.yaral,T1055.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1055_003_v1_telemetry.yaral,T1055.003,False,0.013,DETECTED+NOISY,1 storyline vs 77 benign - 1% precision,1,77
+T1055_003_v2_sequence.yaral,T1055.003,False,,NOT EVALUATED,correlation rule,0,0
+T1055_003_v3_lineage.yaral,T1055.003,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 15 unevaluated condition(s): a looser version still matched nothing,0,0
+T1055_003_v4_network.yaral,T1055.003,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1055_004_v1_telemetry.yaral,T1055.004,False,0.013,INCONCLUSIVE,upper bound only: 1 storyline / 77 benign with 1 condition(s) not evaluated - real rule matches at most this,1,77
+T1055_004_v2_sequence.yaral,T1055.004,False,,NOT EVALUATED,correlation rule,0,0
+T1055_005_v1_telemetry.yaral,T1055.005,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1055_005_v2_sequence.yaral,T1055.005,False,,NOT EVALUATED,correlation rule,0,0
+T1055_008_v1_telemetry.yaral,T1055.008,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 8 unevaluated condition(s): a looser version still matched nothing,0,0
+T1055_008_v2_sequence.yaral,T1055.008,False,,NOT EVALUATED,correlation rule,0,0
+T1055_009_v1_telemetry.yaral,T1055.009,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1055_009_v2_sequence.yaral,T1055.009,False,,NOT EVALUATED,correlation rule,0,0
+T1055_011_v1_telemetry.yaral,T1055.011,False,0.013,DETECTED+NOISY,1 storyline vs 76 benign - 1% precision,1,76
+T1055_011_v2_sequence.yaral,T1055.011,False,,NOT EVALUATED,correlation rule,0,0
+T1055_012_v1_telemetry.yaral,T1055.012,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 1 unevaluated condition(s): a looser version still matched nothing,0,0
+T1055_012_v2_sequence.yaral,T1055.012,False,,NOT EVALUATED,correlation rule,0,0
+T1055_013_v1_telemetry.yaral,T1055.013,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1055_013_v2_sequence.yaral,T1055.013,False,,NOT EVALUATED,correlation rule,0,0
+T1055_014_v1_telemetry.yaral,T1055.014,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1055_014_v2_sequence.yaral,T1055.014,False,,NOT EVALUATED,correlation rule,0,0
+T1055_015_v1_telemetry.yaral,T1055.015,False,0.014,DETECTED+NOISY,1 storyline vs 71 benign - 1% precision,1,71
+T1055_015_v2_sequence.yaral,T1055.015,False,,NOT EVALUATED,correlation rule,0,0
+T1055_v1_telemetry.yaral,T1055,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1055_v2_sequence.yaral,T1055,False,,NOT EVALUATED,correlation rule,0,0
+T1055_v3_lineage.yaral,T1055,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 30 unevaluated condition(s): a looser version still matched nothing,0,0
+T1055_v4_network.yaral,T1055,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 4 unevaluated condition(s): a looser version still matched nothing,0,0
+T1055_v5_platform.yaral,T1055,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1059_001_v1_telemetry.yaral,T1059.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1059_001_v2_sequence.yaral,T1059.001,False,,NOT EVALUATED,correlation rule,0,0
+T1059_003_v1_telemetry.yaral,T1059.003,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1059_003_v2_sequence.yaral,T1059.003,False,,NOT EVALUATED,correlation rule,0,0
+T1059_004_v1_telemetry.yaral,T1059.004,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1059_004_v2_sequence.yaral,T1059.004,False,,NOT EVALUATED,correlation rule,0,0
+T1059_005_v1_telemetry.yaral,T1059.005,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1059_005_v2_sequence.yaral,T1059.005,False,,NOT EVALUATED,correlation rule,0,0
+T1059_006_v1_telemetry.yaral,T1059.006,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1059_006_v2_sequence.yaral,T1059.006,False,,NOT EVALUATED,correlation rule,0,0
+T1059_007_v1_telemetry.yaral,T1059.007,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1059_007_v2_sequence.yaral,T1059.007,False,,NOT EVALUATED,correlation rule,0,0
+T1059_008_v1_network.yaral,T1059.008,False,0.026,INCONCLUSIVE,upper bound only: 7 storyline / 265 benign with 7 condition(s) not evaluated - real rule matches at most this,7,265
+T1059_008_v2_sequence.yaral,T1059.008,False,,NOT EVALUATED,correlation rule,0,0
+T1059_009_v1_telemetry.yaral,T1059.009,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1059_009_v2_sequence.yaral,T1059.009,False,,NOT EVALUATED,correlation rule,0,0
+T1059_010_v1_telemetry.yaral,T1059.010,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1059_010_v2_sequence.yaral,T1059.010,False,,NOT EVALUATED,correlation rule,0,0
+T1059_011_v1_network.yaral,T1059.011,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1059_011_v2_sequence.yaral,T1059.011,False,,NOT EVALUATED,correlation rule,0,0
+T1059_012_v1_telemetry.yaral,T1059.012,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 12 unevaluated condition(s): a looser version still matched nothing,0,0
+T1059_012_v2_sequence.yaral,T1059.012,False,,NOT EVALUATED,correlation rule,0,0
+T1059_013_v1_telemetry.yaral,T1059.013,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1059_013_v2_sequence.yaral,T1059.013,False,,NOT EVALUATED,correlation rule,0,0
+T1059_v1_telemetry.yaral,T1059,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1059_v2_sequence.yaral,T1059,False,,NOT EVALUATED,correlation rule,0,0
+T1071_001_v1_network.yaral,T1071.001,True,0.0,MISSED,technique is in the scenario but rule never fired | reliable despite 12 unevaluated condition(s): a looser version still matched nothing,0,0
+T1071_001_v2_sequence.yaral,T1071.001,True,,NOT EVALUATED,correlation rule,0,0
+T1071_002_v1_network.yaral,T1071.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 4 unevaluated condition(s): a looser version still matched nothing,0,0
+T1071_002_v2_sequence.yaral,T1071.002,False,,NOT EVALUATED,correlation rule,0,0
+T1071_003_v1_network.yaral,T1071.003,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 8 unevaluated condition(s): a looser version still matched nothing,0,0
+T1071_003_v2_sequence.yaral,T1071.003,False,,NOT EVALUATED,correlation rule,0,0
+T1071_004_v1_telemetry.yaral,T1071.004,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1071_004_v2_sequence.yaral,T1071.004,False,,NOT EVALUATED,correlation rule,0,0
+T1071_005_v1_network.yaral,T1071.005,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 9 unevaluated condition(s): a looser version still matched nothing,0,0
+T1071_005_v2_sequence.yaral,T1071.005,False,,NOT EVALUATED,correlation rule,0,0
+T1071_v1_network.yaral,T1071,True,0.0,INCONCLUSIVE,upper bound only: 0 storyline / 5 benign with 9 condition(s) not evaluated - real rule matches at most this,0,5
+T1071_v2_sequence.yaral,T1071,True,,NOT EVALUATED,correlation rule,0,0
+T1074_001_v1_baseline.yaral,T1074.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1074_002_v1_baseline.yaral,T1074.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1074_v1_baseline.yaral,T1074,False,0.667,DETECTED,"2 storyline hit(s), 67% precision",2,1
+T1078_001_v1_telemetry.yaral,T1078.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1078_001_v2_sequence.yaral,T1078.001,False,,NOT EVALUATED,correlation rule,0,0
+T1078_002_v1_telemetry.yaral,T1078.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1078_002_v2_sequence.yaral,T1078.002,False,,NOT EVALUATED,correlation rule,0,0
+T1078_003_v1_telemetry.yaral,T1078.003,True,0.054,INCONCLUSIVE,upper bound only: 9 storyline / 157 benign with 2 condition(s) not evaluated - real rule matches at most this,9,157
+T1078_003_v2_sequence.yaral,T1078.003,True,,NOT EVALUATED,correlation rule,0,0
+T1078_004_v1_telemetry.yaral,T1078.004,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1078_004_v2_sequence.yaral,T1078.004,False,,NOT EVALUATED,correlation rule,0,0
+T1078_v1_telemetry.yaral,T1078,True,0.0,MISSED,technique is in the scenario but rule never fired,0,0
+T1078_v2_sequence.yaral,T1078,True,,NOT EVALUATED,correlation rule,0,0
+T1080_v1_baseline.yaral,T1080,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 7 unevaluated condition(s): a looser version still matched nothing,0,0
+T1082_v1_telemetry.yaral,T1082,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1082_v2_sequence.yaral,T1082,False,,NOT EVALUATED,correlation rule,0,0
+T1087_001_v1_telemetry.yaral,T1087.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1087_001_v2_sequence.yaral,T1087.001,False,,NOT EVALUATED,correlation rule,0,0
+T1087_002_v1_network.yaral,T1087.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1087_002_v2_sequence.yaral,T1087.002,False,,NOT EVALUATED,correlation rule,0,0
+T1087_003_v1_telemetry.yaral,T1087.003,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1087_003_v2_sequence.yaral,T1087.003,False,,NOT EVALUATED,correlation rule,0,0
+T1087_004_v1_telemetry.yaral,T1087.004,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1087_004_v2_sequence.yaral,T1087.004,False,,NOT EVALUATED,correlation rule,0,0
+T1087_v1_telemetry.yaral,T1087,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1087_v2_sequence.yaral,T1087,False,,NOT EVALUATED,correlation rule,0,0
+T1091_v1_baseline.yaral,T1091,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 11 unevaluated condition(s): a looser version still matched nothing,0,0
+T1092_v1_baseline.yaral,T1092,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1095_v1_baseline.yaral,T1095,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1104_v1_baseline.yaral,T1104,False,0.0,NOISY,"11 benign hits, no storyline (1.3% of PROCESS_LAUNCH events)",0,11
+T1105_v1_telemetry.yaral,T1105,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1105_v2_sequence.yaral,T1105,False,,NOT EVALUATED,correlation rule,0,0
+T1114_001_v1_baseline.yaral,T1114.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1114_002_v1_baseline.yaral,T1114.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1114_003_v1_baseline.yaral,T1114.003,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 11 unevaluated condition(s): a looser version still matched nothing,0,0
+T1114_v1_baseline.yaral,T1114,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1115_v1_baseline.yaral,T1115,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 7 unevaluated condition(s): a looser version still matched nothing,0,0
+T1120_v1_baseline.yaral,T1120,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 26 unevaluated condition(s): a looser version still matched nothing,0,0
+T1123_v1_baseline.yaral,T1123,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 10 unevaluated condition(s): a looser version still matched nothing,0,0
+T1125_v1_baseline.yaral,T1125,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 10 unevaluated condition(s): a looser version still matched nothing,0,0
+T1129_v1_baseline.yaral,T1129,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1134_001_v1_baseline.yaral,T1134.001,False,0.0,NOISY,"66 benign hits, no storyline (14.8% of PROCESS_OPEN events)",0,66
+T1134_002_v1_baseline.yaral,T1134.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1134_003_v1_baseline.yaral,T1134.003,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 4 unevaluated condition(s): a looser version still matched nothing,0,0
+T1134_004_v1_baseline.yaral,T1134.004,False,0.0,LOW-VOLUME,"1 benign hit(s), no storyline",0,1
+T1134_005_v1_baseline.yaral,T1134.005,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 12 unevaluated condition(s): a looser version still matched nothing,0,0
+T1134_v1_baseline.yaral,T1134,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 17 unevaluated condition(s): a looser version still matched nothing,0,0
+T1136_002_v1_baseline.yaral,T1136.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 4 unevaluated condition(s): a looser version still matched nothing,0,0
+T1136_003_v1_baseline.yaral,T1136.003,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1136_v1_baseline.yaral,T1136,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1137_001_v1_baseline.yaral,T1137.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1137_002_v1_baseline.yaral,T1137.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1137_004_v1_baseline.yaral,T1137.004,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1137_005_v1_baseline.yaral,T1137.005,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1137_006_v1_baseline.yaral,T1137.006,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 4 unevaluated condition(s): a looser version still matched nothing,0,0
+T1137_v1_baseline.yaral,T1137,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1140_v1_telemetry.yaral,T1140,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1140_v2_sequence.yaral,T1140,False,,NOT EVALUATED,correlation rule,0,0
+T1176_001_v1_baseline.yaral,T1176.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1176_002_v1_baseline.yaral,T1176.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1176_v1_baseline.yaral,T1176,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1185_v1_baseline.yaral,T1185,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1187_v1_baseline.yaral,T1187,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1195_001_v1_baseline.yaral,T1195.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1195_002_v1_baseline.yaral,T1195.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1195_003_v1_baseline.yaral,T1195.003,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1195_v1_baseline.yaral,T1195,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 8 unevaluated condition(s): a looser version still matched nothing,0,0
+T1199_v1_baseline.yaral,T1199,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1200_v1_baseline.yaral,T1200,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1202_v1_baseline.yaral,T1202,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1205_001_v1_baseline.yaral,T1205.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 15 unevaluated condition(s): a looser version still matched nothing,0,0
+T1205_002_v1_baseline.yaral,T1205.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1205_v1_baseline.yaral,T1205,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1207_v1_baseline.yaral,T1207,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1211_v1_baseline.yaral,T1211,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 28 unevaluated condition(s): a looser version still matched nothing,0,0
+T1216_001_v1_baseline.yaral,T1216.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1216_002_v1_baseline.yaral,T1216.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1216_v1_baseline.yaral,T1216,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1220_v1_baseline.yaral,T1220,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 11 unevaluated condition(s): a looser version still matched nothing,0,0
+T1221_v1_baseline.yaral,T1221,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1222_001_v1_baseline.yaral,T1222.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 7 unevaluated condition(s): a looser version still matched nothing,0,0
+T1222_002_v1_baseline.yaral,T1222.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1222_v1_baseline.yaral,T1222,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1480_001_v1_baseline.yaral,T1480.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 15 unevaluated condition(s): a looser version still matched nothing,0,0
+T1480_002_v1_baseline.yaral,T1480.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1480_v1_baseline.yaral,T1480,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1486_v1_telemetry.yaral,T1486,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 1 unevaluated condition(s): a looser version still matched nothing,0,0
+T1486_v2_sequence.yaral,T1486,False,,NOT EVALUATED,correlation rule,0,0
+T1491_001_v1_baseline.yaral,T1491.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1491_002_v1_baseline.yaral,T1491.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1491_v1_baseline.yaral,T1491,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1495_v1_baseline.yaral,T1495,False,0.0,INCONCLUSIVE,upper bound only: 0 storyline / 5 benign with 8 condition(s) not evaluated - real rule matches at most this,0,5
+T1496_001_v1_baseline.yaral,T1496.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1496_002_v1_baseline.yaral,T1496.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1496_003_v1_baseline.yaral,T1496.003,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1496_004_v1_baseline.yaral,T1496.004,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1496_v1_baseline.yaral,T1496,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 14 unevaluated condition(s): a looser version still matched nothing,0,0
+T1497_001_v1_baseline.yaral,T1497.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1497_002_v1_baseline.yaral,T1497.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1497_003_v1_baseline.yaral,T1497.003,False,0.0,INCONCLUSIVE,upper bound only: 0 storyline / 5 benign with 3 condition(s) not evaluated - real rule matches at most this,0,5
+T1497_v1_baseline.yaral,T1497,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 9 unevaluated condition(s): a looser version still matched nothing,0,0
+T1498_001_v1_baseline.yaral,T1498.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1498_002_v1_baseline.yaral,T1498.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 9 unevaluated condition(s): a looser version still matched nothing,0,0
+T1498_v1_baseline.yaral,T1498,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1518_001_v1_baseline.yaral,T1518.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1518_002_v1_baseline.yaral,T1518.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 23 unevaluated condition(s): a looser version still matched nothing,0,0
+T1518_v1_baseline.yaral,T1518,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1525_v1_baseline.yaral,T1525,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 1 unevaluated condition(s): a looser version still matched nothing,0,0
+T1526_v1_baseline.yaral,T1526,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1529_v1_baseline.yaral,T1529,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 10 unevaluated condition(s): a looser version still matched nothing,0,0
+T1530_v1_telemetry.yaral,T1530,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1530_v2_sequence.yaral,T1530,False,,NOT EVALUATED,correlation rule,0,0
+T1531_v1_baseline.yaral,T1531,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1534_v1_baseline.yaral,T1534,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1535_v1_baseline.yaral,T1535,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1537_v1_baseline.yaral,T1537,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1538_v1_baseline.yaral,T1538,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1539_v1_baseline.yaral,T1539,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1542_001_v1_baseline.yaral,T1542.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1542_002_v1_baseline.yaral,T1542.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1542_003_v1_baseline.yaral,T1542.003,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 4 unevaluated condition(s): a looser version still matched nothing,0,0
+T1542_004_v1_baseline.yaral,T1542.004,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1542_005_v1_baseline.yaral,T1542.005,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1542_v1_baseline.yaral,T1542,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 21 unevaluated condition(s): a looser version still matched nothing,0,0
+T1547_001_v1_telemetry.yaral,T1547.001,False,0.011,INCONCLUSIVE,upper bound only: 2 storyline / 174 benign with 1 condition(s) not evaluated - real rule matches at most this,2,174
+T1547_001_v2_sequence.yaral,T1547.001,False,,NOT EVALUATED,correlation rule,0,0
+T1547_002_v1_telemetry.yaral,T1547.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1547_002_v2_sequence.yaral,T1547.002,False,,NOT EVALUATED,correlation rule,0,0
+T1547_003_v1_telemetry.yaral,T1547.003,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1547_003_v2_sequence.yaral,T1547.003,False,,NOT EVALUATED,correlation rule,0,0
+T1547_004_v1_telemetry.yaral,T1547.004,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 4 unevaluated condition(s): a looser version still matched nothing,0,0
+T1547_004_v2_sequence.yaral,T1547.004,False,,NOT EVALUATED,correlation rule,0,0
+T1547_005_v1_telemetry.yaral,T1547.005,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1547_005_v2_sequence.yaral,T1547.005,False,,NOT EVALUATED,correlation rule,0,0
+T1547_006_v1_telemetry.yaral,T1547.006,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1547_006_v2_sequence.yaral,T1547.006,False,,NOT EVALUATED,correlation rule,0,0
+T1547_008_v1_telemetry.yaral,T1547.008,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1547_008_v2_sequence.yaral,T1547.008,False,,NOT EVALUATED,correlation rule,0,0
+T1547_009_v1_telemetry.yaral,T1547.009,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1547_009_v2_sequence.yaral,T1547.009,False,,NOT EVALUATED,correlation rule,0,0
+T1547_010_v1_telemetry.yaral,T1547.010,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1547_010_v2_sequence.yaral,T1547.010,False,,NOT EVALUATED,correlation rule,0,0
+T1547_012_v1_telemetry.yaral,T1547.012,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1547_012_v2_sequence.yaral,T1547.012,False,,NOT EVALUATED,correlation rule,0,0
+T1547_013_v1_telemetry.yaral,T1547.013,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 1 unevaluated condition(s): a looser version still matched nothing,0,0
+T1547_013_v2_sequence.yaral,T1547.013,False,,NOT EVALUATED,correlation rule,0,0
+T1547_014_v1_telemetry.yaral,T1547.014,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1547_014_v2_sequence.yaral,T1547.014,False,,NOT EVALUATED,correlation rule,0,0
+T1547_v1_telemetry.yaral,T1547,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1547_v2_sequence.yaral,T1547,False,,NOT EVALUATED,correlation rule,0,0
+T1553_003_v1_baseline.yaral,T1553.003,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1553_004_v1_baseline.yaral,T1553.004,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 34 unevaluated condition(s): a looser version still matched nothing,0,0
+T1553_005_v1_baseline.yaral,T1553.005,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1553_006_v1_baseline.yaral,T1553.006,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 16 unevaluated condition(s): a looser version still matched nothing,0,0
+T1553_v1_baseline.yaral,T1553,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 8 unevaluated condition(s): a looser version still matched nothing,0,0
+T1554_v1_baseline.yaral,T1554,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1555_002_v1_telemetry.yaral,T1555.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1555_002_v2_sequence.yaral,T1555.002,False,,NOT EVALUATED,correlation rule,0,0
+T1555_003_v1_telemetry.yaral,T1555.003,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 2 unevaluated condition(s): a looser version still matched nothing,0,0
+T1555_003_v2_sequence.yaral,T1555.003,False,,NOT EVALUATED,correlation rule,0,0
+T1555_004_v1_telemetry.yaral,T1555.004,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1555_004_v2_sequence.yaral,T1555.004,False,,NOT EVALUATED,correlation rule,0,0
+T1555_005_v1_telemetry.yaral,T1555.005,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1555_005_v2_sequence.yaral,T1555.005,False,,NOT EVALUATED,correlation rule,0,0
+T1555_006_v1_telemetry.yaral,T1555.006,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1555_006_v2_sequence.yaral,T1555.006,False,,NOT EVALUATED,correlation rule,0,0
+T1555_v1_telemetry.yaral,T1555,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 29 unevaluated condition(s): a looser version still matched nothing,0,0
+T1555_v2_sequence.yaral,T1555,False,,NOT EVALUATED,correlation rule,0,0
+T1558_001_v1_baseline.yaral,T1558.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1558_002_v1_baseline.yaral,T1558.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1558_004_v1_baseline.yaral,T1558.004,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 10 unevaluated condition(s): a looser version still matched nothing,0,0
+T1558_005_v1_baseline.yaral,T1558.005,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1558_v1_baseline.yaral,T1558,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 8 unevaluated condition(s): a looser version still matched nothing,0,0
+T1559_001_v1_baseline.yaral,T1559.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1559_002_v1_baseline.yaral,T1559.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1559_v1_baseline.yaral,T1559.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1561_001_v1_baseline.yaral,T1561.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 29 unevaluated condition(s): a looser version still matched nothing,0,0
+T1561_002_v1_baseline.yaral,T1561.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1561_v1_baseline.yaral,T1561,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 25 unevaluated condition(s): a looser version still matched nothing,0,0
+T1563_001_v1_baseline.yaral,T1563.001,False,0.0,LOW-VOLUME,"3 benign hit(s), no storyline",0,3
+T1563_002_v1_baseline.yaral,T1563.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1563_v1_baseline.yaral,T1563,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 4 unevaluated condition(s): a looser version still matched nothing,0,0
+T1565_001_v1_baseline.yaral,T1565.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1565_002_v1_baseline.yaral,T1565.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 22 unevaluated condition(s): a looser version still matched nothing,0,0
+T1565_003_v1_baseline.yaral,T1565.003,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1565_v1_baseline.yaral,T1565,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1569_003_v1_baseline.yaral,T1569.003,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1569_v1_baseline.yaral,T1569,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 4 unevaluated condition(s): a looser version still matched nothing,0,0
+T1571_v1_baseline.yaral,T1571,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1578_001_v1_baseline.yaral,T1578.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1578_002_v1_baseline.yaral,T1578.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1578_003_v1_baseline.yaral,T1578.003,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1578_004_v1_baseline.yaral,T1578.004,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1578_005_v1_baseline.yaral,T1578.005,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1578_v1_baseline.yaral,T1578,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1580_v1_baseline.yaral,T1580,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1599_001_v1_baseline.yaral,T1599.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1599_v1_baseline.yaral,T1599,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 14 unevaluated condition(s): a looser version still matched nothing,0,0
+T1600_001_v1_baseline.yaral,T1600.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1600_002_v1_baseline.yaral,T1600.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1600_v1_baseline.yaral,T1600,False,0.0,INCONCLUSIVE,upper bound only: 0 storyline / 3 benign with 4 condition(s) not evaluated - real rule matches at most this,0,3
+T1601_001_v1_baseline.yaral,T1601.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1601_002_v1_baseline.yaral,T1601.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1601_v1_baseline.yaral,T1601,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 11 unevaluated condition(s): a looser version still matched nothing,0,0
+T1602_001_v1_baseline.yaral,T1602.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1602_002_v1_baseline.yaral,T1602.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 4 unevaluated condition(s): a looser version still matched nothing,0,0
+T1602_v1_baseline.yaral,T1602,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1606_001_v1_baseline.yaral,T1606.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1606_002_v1_baseline.yaral,T1606.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 14 unevaluated condition(s): a looser version still matched nothing,0,0
+T1606_v1_baseline.yaral,T1606,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1609_v1_baseline.yaral,T1609,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1610_v1_baseline.yaral,T1610,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1611_v1_baseline.yaral,T1611,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 11 unevaluated condition(s): a looser version still matched nothing,0,0
+T1612_v1_baseline.yaral,T1612,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1613_v1_baseline.yaral,T1613,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1614_001_v1_baseline.yaral,T1614.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 29 unevaluated condition(s): a looser version still matched nothing,0,0
+T1614_v1_baseline.yaral,T1614,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1615_v1_baseline.yaral,T1615,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 19 unevaluated condition(s): a looser version still matched nothing,0,0
+T1619_v1_baseline.yaral,T1619,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1620_v1_baseline.yaral,T1620,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 19 unevaluated condition(s): a looser version still matched nothing,0,0
+T1622_v1_baseline.yaral,T1622,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1648_v1_baseline.yaral,T1648,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1649_v1_baseline.yaral,T1649,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1651_v1_baseline.yaral,T1651,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1652_v1_baseline.yaral,T1652,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 16 unevaluated condition(s): a looser version still matched nothing,0,0
+T1653_v1_baseline.yaral,T1653,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1654_v1_baseline.yaral,T1654,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 9 unevaluated condition(s): a looser version still matched nothing,0,0
+T1657_v1_baseline.yaral,T1657,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 7 unevaluated condition(s): a looser version still matched nothing,0,0
+T1659_v1_baseline.yaral,T1659,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1665_v1_baseline.yaral,T1665,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 9 unevaluated condition(s): a looser version still matched nothing,0,0
+T1666_v1_baseline.yaral,T1666,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1667_v1_baseline.yaral,T1667,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1668_v1_baseline.yaral,T1668,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 39 unevaluated condition(s): a looser version still matched nothing,0,0
+T1669_v1_baseline.yaral,T1669,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1671_v1_baseline.yaral,T1671,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 7 unevaluated condition(s): a looser version still matched nothing,0,0
+T1673_v1_baseline.yaral,T1673,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 8 unevaluated condition(s): a looser version still matched nothing,0,0
+T1674_v1_baseline.yaral,T1674,False,0.133,DETECTED+NOISY,4 storyline vs 26 benign - 13% precision,4,26
+T1675_v1_baseline.yaral,T1675,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 8 unevaluated condition(s): a looser version still matched nothing,0,0
+T1677_v1_baseline.yaral,T1677,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 1 unevaluated condition(s): a looser version still matched nothing,0,0
+T1678_v1_baseline.yaral,T1678,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 20 unevaluated condition(s): a looser version still matched nothing,0,0
+T1679_v1_baseline.yaral,T1679,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 9 unevaluated condition(s): a looser version still matched nothing,0,0
+T1680_v1_baseline.yaral,T1680,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1684_001_v1_baseline.yaral,T1684.001,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1684_002_v1_baseline.yaral,T1684.002,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1684_v1_baseline.yaral,T1684,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 4 unevaluated condition(s): a looser version still matched nothing,0,0
+T1685_001_v1_telemetry.yaral,T1685.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 5 unevaluated condition(s): a looser version still matched nothing,0,0
+T1685_001_v2_sequence.yaral,T1685.001,False,,NOT EVALUATED,correlation rule,0,0
+T1685_002_v1_telemetry.yaral,T1685.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 10 unevaluated condition(s): a looser version still matched nothing,0,0
+T1685_002_v2_sequence.yaral,T1685.002,False,,NOT EVALUATED,correlation rule,0,0
+T1685_003_v1_telemetry.yaral,T1685.003,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1685_003_v2_sequence.yaral,T1685.003,False,,NOT EVALUATED,correlation rule,0,0
+T1685_004_v1_telemetry.yaral,T1685.004,False,0.034,INCONCLUSIVE,upper bound only: 215 storyline / 6138 benign with 7 condition(s) not evaluated - real rule matches at most this,215,6138
+T1685_004_v2_sequence.yaral,T1685.004,False,,NOT EVALUATED,correlation rule,0,0
+T1685_005_v1_telemetry.yaral,T1485.005,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1685_005_v2_sequence.yaral,T1685.005,False,,NOT EVALUATED,correlation rule,0,0
+T1685_006_v1_telemetry.yaral,T1485.006,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 1 unevaluated condition(s): a looser version still matched nothing,0,0
+T1685_006_v2_sequence.yaral,T1485.006,False,,NOT EVALUATED,correlation rule,0,0
+T1685_v1_telemetry.yaral,T1685,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1685_v2_sequence.yaral,T1685,False,,NOT EVALUATED,correlation rule,0,0
+T1686_001_v1_telemetry.yaral,T1686.001,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 3 unevaluated condition(s): a looser version still matched nothing,0,0
+T1686_001_v2_sequence.yaral,T1686.001,False,,NOT EVALUATED,correlation rule,0,0
+T1686_002_v1_network.yaral,T1686.002,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 12 unevaluated condition(s): a looser version still matched nothing,0,0
+T1686_002_v2_sequence.yaral,T1686.002,False,,NOT EVALUATED,correlation rule,0,0
+T1686_003_v1_telemetry.yaral,T1686.003,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0
+T1686_003_v2_sequence.yaral,T1686.003,False,,NOT EVALUATED,correlation rule,0,0
+T1686_v1_network.yaral,T1686,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 17 unevaluated condition(s): a looser version still matched nothing,0,0
+T1686_v2_sequence.yaral,T1562.004,False,,NOT EVALUATED,correlation rule,0,0
+T1687_v1_baseline.yaral,T1687,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 10 unevaluated condition(s): a looser version still matched nothing,0,0
+T1687_v2_sequence.yaral,T1687,False,,NOT EVALUATED,correlation rule,0,0
+T1687_v3_threshold.yaral,T1687,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1689_v1_baseline.yaral,T1689,False,0.0,SILENT,no matches (technique not in scenario),0,0
+T1690_v1_baseline.yaral,T1690,False,0.0,SILENT,no matches (technique not in scenario) | reliable despite 6 unevaluated condition(s): a looser version still matched nothing,0,0

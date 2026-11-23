@@ -1,0 +1,217 @@
+{
+  "run_id": "20260813T174635Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 176,
+  "gap_count": 336,
+  "generated": 10,
+  "failed": 0,
+  "with_warnings": 0,
+  "auto_fixed_total": 0,
+  "elapsed_minutes": 3.3,
+  "generated_by_priority_tier": {
+    "App-layer C2 and Ingress Tool Transfer": 10
+  },
+  "generated_by_platform": {
+    "Linux": 3,
+    "Network Devices": 2,
+    "ESXi": 2,
+    "Windows": 3
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1071.002",
+      "name": "File Transfer Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.002|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|linux",
+      "file": "T1071_002_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.002",
+      "name": "File Transfer Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.002|NETWORK_FLOW,USER_LOGIN|metadata.event_type,network.sent_bytes,principal.hostname,principal.ip,security_result.action,target.hostname,target.ip,target.port|network devices",
+      "file": "T1071_002_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.003",
+      "name": "Mail Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.003|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|linux",
+      "file": "T1071_003_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.003",
+      "name": "Mail Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.003|NETWORK_FLOW|metadata.event_type,principal.ip,target.ip,target.port|network devices",
+      "file": "T1071_003_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.004",
+      "name": "DNS",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.004|SETTING_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|esxi",
+      "file": "T1071_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.004",
+      "name": "DNS",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.004|NETWORK_DNS|metadata.event_type,network.dns.questions.name,principal.hostname,principal.ip|windows",
+      "file": "T1071_004_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.005",
+      "name": "Publish/Subscribe Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.005|NETWORK_CONNECTION|metadata.event_type,principal.hostname,target.ip,target.port|windows",
+      "file": "T1071_005_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.005",
+      "name": "Publish/Subscribe Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.005|NETWORK_CONNECTION,NETWORK_FLOW|metadata.event_type,principal.ip,target.ip,target.port|linux",
+      "file": "T1071_005_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1105|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|esxi",
+      "file": "T1105_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1105|NETWORK_CONNECTION,NETWORK_FLOW|metadata.event_type,network.received_bytes,principal.ip,target.ip,target.port|windows",
+      "file": "T1105_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "run_id": "20260731T162631Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 178,
+  "gap_count": 527,
+  "generated": 10,
+  "failed": 0,
+  "with_warnings": 6,
+  "elapsed_minutes": 3.6,
+  "generated_by_priority_tier": {
+    "Process Injection": 10
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1055",
+      "name": "Process Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_v1_telemetry.yaral",
+      "warnings": [
+        "Windows path/exe regex without case-insensitivity (add 'nocase' or '(?i)')"
+      ]
+    },
+    {
+      "id": "T1055",
+      "name": "Process Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055|NETWORK_CONNECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.port|windows, linux, macos",
+      "file": "T1055_v2_sequence.yaral",
+      "warnings": [
+        "non-standard event variable '$open' (use proc/net/file/reg/auth/cloud, optionally suffixed e.g. $proc1)",
+        "correlation rule requested but only one event variable present"
+      ]
+    },
+    {
+      "id": "T1055.001",
+      "name": "Dynamic-link Library Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.001|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.process.pid,target.process.access_mask,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1055_001_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1055.001",
+      "name": "Dynamic-link Library Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.001|PROCESS_INJECTION,PROCESS_OPEN||windows",
+      "file": "T1055_001_v2_sequence.yaral",
+      "warnings": [
+        "non-standard event variable '$inj' (use proc/net/file/reg/auth/cloud, optionally suffixed e.g. $proc1)",
+        "non-standard event variable '$open' (use proc/net/file/reg/auth/cloud, optionally suffixed e.g. $proc1)",
+        "correlation rule requested but only one event variable present"
+      ]
+    },
+    {
+      "id": "T1055.002",
+      "name": "Portable Executable Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.002|PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.file.full_path|windows",
+      "file": "T1055_002_v1_telemetry.yaral",
+      "warnings": [
+        "Windows path/exe regex without case-insensitivity (add 'nocase' or '(?i)')"
+      ]
+    },
+    {
+      "id": "T1055.002",
+      "name": "Portable Executable Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.002|PROCESS_INJECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_002_v2_sequence.yaral",
+      "warnings": [
+        "non-standard event variable '$injection' (use proc/net/file/reg/auth/cloud, optionally suffixed e.g. $proc1)",
+        "correlation rule requested but only one event variable present"
+      ]
+    },
+    {
+      "id": "T1055.003",
+      "name": "Thread Execution Hijacking",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.003|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_003_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1055.003",
+      "name": "Thread Execution Hijacking",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.003|PROCESS_INJECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.process.pid,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1055_003_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1055.004",
+      "name": "Asynchronous Procedure Call",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.004|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.process.pid,target.process.access_mask,target.process.pid|windows",
+      "file": "T1055_004_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1055.004",
+      "name": "Asynchronous Procedure Call",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.004|PROCESS_INJECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1055_004_v2_sequence.yaral",
+      "warnings": [
+        "non-standard event variable '$inj' (use proc/net/file/reg/auth/cloud, optionally suffixed e.g. $proc1)",
+        "correlation rule requested but only one event variable present"
+      ]
+    }
+  ]
+}

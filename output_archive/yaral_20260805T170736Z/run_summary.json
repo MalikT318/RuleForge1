@@ -1,0 +1,144 @@
+{
+  "run_id": "20260805T170736Z",
+  "in_progress": true,
+  "completed": 8,
+  "planned": 10,
+  "results": [
+    {
+      "id": "T1685.005",
+      "name": "Clear Windows Event Logs",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.005|FILE_DELETION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1685_005_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1685.005",
+      "name": "Clear Windows Event Logs",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 3,
+      "pivot": "threshold",
+      "rule_type": "threshold",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.005|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.command_line|windows",
+      "file": "T1685_005_v3_threshold.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1685.006",
+      "name": "Clear Linux or Mac System Logs",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.006|FILE_DELETION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux, macos",
+      "file": "T1685_006_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1685.006",
+      "name": "Clear Linux or Mac System Logs",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 3,
+      "pivot": "threshold",
+      "rule_type": "threshold",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.006|FILE_DELETION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux, macos",
+      "file": "T1685_006_v3_threshold.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1686",
+      "name": "Disable or Modify System Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1686|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.port,target.process.command_line,target.process.file.full_path|windows, linux, macos, esxi",
+      "file": "T1686_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1686",
+      "name": "Disable or Modify System Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 3,
+      "pivot": "threshold",
+      "rule_type": "threshold",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1686|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.user.userid,target.process.command_line,target.process.file.full_path|windows, linux, macos, esxi",
+      "file": "T1686_v3_threshold.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1686.001",
+      "name": "Cloud Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1686.001|NETWORK_CONNECTION,SETTING_MODIFICATION|metadata.event_type,principal.cloud.project.id,principal.ip,principal.user.userid,security_result.description,target.cloud.project.id,target.resource.attribute.labels.value,target.resource.name|iaas (aws, gcp, azure)",
+      "file": "T1686_001_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1686.001",
+      "name": "Cloud Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 3,
+      "pivot": "threshold",
+      "rule_type": "threshold",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1686.001|SETTING_MODIFICATION|metadata.event_type,metadata.product_event_type,principal.ip,principal.user.userid|iaas (aws, gcp, azure)",
+      "file": "T1686_001_v3_threshold.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    }
+  ]
+}

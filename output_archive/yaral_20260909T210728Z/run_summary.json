@@ -1,0 +1,2210 @@
+{
+  "run_id": "20260909T210728Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 176,
+  "gap_count": 412,
+  "generated": 100,
+  "failed": 0,
+  "with_warnings": 62,
+  "auto_fixed_total": 10,
+  "chronicle_verified_ok": 90,
+  "chronicle_verified_failed": 10,
+  "elapsed_minutes": 33.6,
+  "generated_by_priority_tier": {
+    "Process Injection": 6,
+    "Command and Scripting Interpreter": 26,
+    "Valid Accounts (incl. cloud)": 10,
+    "Credential Dumping / Password Stores": 30,
+    "App-layer C2 and Ingress Tool Transfer": 14,
+    "Impair Defenses (formerly T1562)": 14
+  },
+  "generated_by_platform": {
+    "Windows": 39,
+    "Linux": 30,
+    "Office Suite": 2,
+    "SaaS": 4,
+    "ESXi": 7,
+    "Network Devices": 6,
+    "IaaS": 7,
+    "Containers": 4,
+    "Identity Provider": 1
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1055.013",
+      "name": "Process Doppelg\u00e4nging",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.013|PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.access_mask,target.process.file.full_path|windows",
+      "file": "T1055_013_v1_telemetry.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: expect type [string], got type int for \"open.udm.target.process.access_mask\" (line 38)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1055.013",
+      "name": "Process Doppelg\u00e4nging",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.013|NETWORK_CONNECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.ip,principal.process.file.full_path,target.hostname,target.ip,target.process.file.full_path|windows",
+      "file": "T1055_013_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.014",
+      "name": "VDSO Hijacking",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.014|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1055_014_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.014",
+      "name": "VDSO Hijacking",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.014|FILE_CREATION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1055_014_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.015",
+      "name": "ListPlanting",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.015|PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_015_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1055.015",
+      "name": "ListPlanting",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.015|PROCESS_INJECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1055_015_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059",
+      "name": "Command and Scripting Interpreter",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Office Suite",
+      "log_source": "vmware_esxi",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059|SETTING_MODIFICATION|metadata.event_type,principal.user.userid,security_result.description,target.resource.name|office suite",
+      "file": "T1059_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059",
+      "name": "Command and Scripting Interpreter",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "SaaS",
+      "log_source": "vmware_esxi",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059|SETTING_MODIFICATION,USER_LOGIN|metadata.event_type,principal.hostname,principal.user.userid,security_result.summary,target.application,target.resource.attribute.labels|saas",
+      "file": "T1059_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.001",
+      "name": "PowerShell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.001|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|windows",
+      "file": "T1059_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.001",
+      "name": "PowerShell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.001|FILE_CREATION,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.ip,target.port|windows",
+      "file": "T1059_001_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.003",
+      "name": "Windows Command Shell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.003|FILE_CREATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1059_003_v1_telemetry.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: invalid regex pattern: (?i)(\\\\Users\\\\[^\\\\]+\\\\(AppData\\\\(Local\\\\Temp|Local|Roaming)|Desktop|Downloads|Documents)|\\\\Windows\\\\Temp|\\\\ProgramData\\\\(?!Microsoft\\\\Windows\\\\(Star (line 25)",
+        "UNKNOWN REFERENCE LIST '%TEMP' - must be one of: global_allowed_admin_tools, global_allowed_admin_users, global_allowed_backup_processes, global_allowed_cloud_principals, global_allowed_domains, global_allowed_mgmt_sources, ..."
+      ],
+      "auto_fixed": 1,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1059.003",
+      "name": "Windows Command Shell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.003|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1059_003_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.004",
+      "name": "Unix Shell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.004|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path,target.file.mime_type|esxi",
+      "file": "T1059_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.004",
+      "name": "Unix Shell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.004|FILE_CREATION,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.hostname,target.ip,target.port|linux",
+      "file": "T1059_004_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.005",
+      "name": "Visual Basic",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.005|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1059_005_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.005",
+      "name": "Visual Basic",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.005|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1059_005_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.006",
+      "name": "Python",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.006|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1059_006_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $file.target.file.full_path = /^\\/tmp\\// nocase or"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.006",
+      "name": "Python",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.006|PROCESS_LAUNCH,USER_LOGIN|metadata.event_type,principal.hostname,principal.ip,principal.process.file.full_path,principal.user.userid,target.process.file.full_path,target.user.userid|esxi",
+      "file": "T1059_006_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.007",
+      "name": "JavaScript",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.007|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1059_007_v1_telemetry.yaral",
+      "warnings": [
+        "UNKNOWN REFERENCE LIST '%TEMP' - must be one of: global_allowed_admin_tools, global_allowed_admin_users, global_allowed_backup_processes, global_allowed_cloud_principals, global_allowed_domains, global_allowed_mgmt_sources, ..."
+      ],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.007",
+      "name": "JavaScript",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.007|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.file.full_path|linux",
+      "file": "T1059_007_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.008",
+      "name": "Network Device CLI",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.008|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|network devices",
+      "file": "T1059_008_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.008",
+      "name": "Network Device CLI",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.008|SETTING_MODIFICATION,USER_LOGIN|metadata.event_type,principal.ip,principal.user.userid,target.hostname|network devices",
+      "file": "T1059_008_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.009",
+      "name": "Cloud API",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "SaaS",
+      "log_source": "identity",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.009|USER_RESOURCE_ACCESS|metadata.event_type,principal.user.attribute.roles,principal.user.user_display_name,principal.user.userid,target.resource.name|saas",
+      "file": "T1059_009_v1_telemetry.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: expect type [string], got type message for \"cloud.udm.principal.user.attribute.roles\" (line 25)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1059.009",
+      "name": "Cloud API",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "identity",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.009|USER_CHANGE_PERMISSIONS,USER_LOGIN|extensions.auth.auth_details,metadata.event_type,principal.user.userid|iaas",
+      "file": "T1059_009_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.010",
+      "name": "AutoHotKey & AutoIT",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.010|FILE_CREATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1059_010_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.010",
+      "name": "AutoHotKey & AutoIT",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.010|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|windows",
+      "file": "T1059_010_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.011",
+      "name": "Lua",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.011|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.hostname,target.ip,target.port|windows",
+      "file": "T1059_011_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.011",
+      "name": "Lua",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.011|FILE_CREATION,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.hostname,target.ip|linux",
+      "file": "T1059_011_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.012",
+      "name": "Hypervisor CLI",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.012|FILE_MODIFICATION|metadata.event_type,principal.hostname,principal.user.userid,target.file.full_path|esxi",
+      "file": "T1059_012_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $file.target.file.full_path = /^\\/etc\\/vmware\\// nocase or"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.012",
+      "name": "Hypervisor CLI",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.012|PROCESS_LAUNCH,SETTING_MODIFICATION|about.labels,metadata.event_type,principal.hostname,principal.ip,principal.user.userid,security_result.summary,target.process.command_line,target.process.file.full_path|esxi",
+      "file": "T1059_012_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.013",
+      "name": "Container CLI/API",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Containers",
+      "log_source": "cloud_audit",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.013|USER_RESOURCE_ACCESS|metadata.event_type,principal.ip,principal.user.userid,target.resource.name|containers",
+      "file": "T1059_013_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1059.013",
+      "name": "Container CLI/API",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Containers",
+      "log_source": "cloud_audit",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.013|USER_RESOURCE_ACCESS|metadata.event_type,principal.user.userid,target.resource.name|containers",
+      "file": "T1059_013_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "SaaS",
+      "log_source": "identity",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078|USER_LOGIN|extensions.auth.auth_details,metadata.event_type,principal.ip,principal.user.userid,security_result.summary,target.application|saas",
+      "file": "T1078_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "identity",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078|USER_CHANGE_PERMISSIONS,USER_LOGIN|metadata.event_type,principal.ip,principal.user.userid,security_result.summary,target.resource.attribute.labels.key,target.user.userid|iaas",
+      "file": "T1078_v2_sequence.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $priv.target.resource.attribute.labels.key = /role|permissio",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1078.001",
+      "name": "Default Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Containers",
+      "log_source": "cloud_audit",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.001|USER_RESOURCE_ACCESS|metadata.event_type,principal.user.userid,target.resource.name|containers",
+      "file": "T1078_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1078.001",
+      "name": "Default Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.001|SETTING_MODIFICATION,USER_LOGIN|metadata.event_type,principal.ip,principal.user.userid,target.hostname,target.user.userid|network devices",
+      "file": "T1078_001_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1078.002",
+      "name": "Domain Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.002|FILE_CREATION,FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1078_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1078.002",
+      "name": "Domain Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.002|SETTING_MODIFICATION,USER_LOGIN|metadata.event_type,principal.ip,principal.user.userid,target.hostname,target.user.userid|esxi",
+      "file": "T1078_002_v2_sequence.yaral",
+      "warnings": [
+        "Windows path/exe regex without case-insensitivity (add 'nocase' or '(?i)')",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1078.003",
+      "name": "Local Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "identity",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.003|USER_LOGIN|metadata.event_type,principal.ip,target.hostname,target.user.userid|windows",
+      "file": "T1078_003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1078.003",
+      "name": "Local Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.003|FILE_MODIFICATION,USER_LOGIN|metadata.event_type,principal.hostname,principal.ip,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1078_003_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1078.004",
+      "name": "Cloud Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "SaaS",
+      "log_source": "identity",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.004|USER_CHANGE_PERMISSIONS|metadata.event_type,principal.user.userid,target.resource.name,target.user.attribute.roles,target.user.userid|saas",
+      "file": "T1078_004_v1_telemetry.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: expect type [string], got type message for \"auth.udm.target.user.attribute.roles\" (line 31)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1078.004",
+      "name": "Cloud Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "identity",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.004|USER_CHANGE_PERMISSIONS,USER_LOGIN|metadata.event_type,principal.ip,principal.user.userid,target.user.userid|iaas",
+      "file": "T1078_004_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003",
+      "name": "OS Credential Dumping",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.file.full_path|windows",
+      "file": "T1003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003",
+      "name": "OS Credential Dumping",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003|FILE_CREATION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1003_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.001",
+      "name": "LSASS Memory",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.001|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1003_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.001",
+      "name": "LSASS Memory",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.001|FILE_CREATION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1003_001_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.002",
+      "name": "Security Account Manager",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.002|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1003_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.002",
+      "name": "Security Account Manager",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.002|FILE_CREATION,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.registry.registry_key|windows",
+      "file": "T1003_002_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.003",
+      "name": "NTDS",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.003|FILE_CREATION,FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1003_003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.003",
+      "name": "NTDS",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.003|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1003_003_v2_sequence.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $vss.target.process.command_line = /shadow/ nocase or",
+        "UNKNOWN REFERENCE LIST '%SystemRoot' - must be one of: global_allowed_admin_tools, global_allowed_admin_users, global_allowed_backup_processes, global_allowed_cloud_principals, global_allowed_domains, global_allowed_mgmt_sources, ...",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.004",
+      "name": "LSA Secrets",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.004|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key|windows",
+      "file": "T1003_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.004",
+      "name": "LSA Secrets",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.004|FILE_CREATION,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.registry.registry_key|windows",
+      "file": "T1003_004_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.005",
+      "name": "Cached Domain Credentials",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.005|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1003_005_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.005",
+      "name": "Cached Domain Credentials",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.005|FILE_CREATION,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.registry.registry_key|windows",
+      "file": "T1003_005_v2_sequence.yaral",
+      "warnings": [
+        "Windows path/exe regex without case-insensitivity (add 'nocase' or '(?i)')",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.006",
+      "name": "DCSync",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.006|NETWORK_CONNECTION|metadata.event_type,network.ip_protocol,principal.ip,target.ip,target.port|windows",
+      "file": "T1003_006_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.006",
+      "name": "DCSync",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "ips",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.006|NETWORK_CONNECTION,NETWORK_FLOW|metadata.event_type,network.ip_protocol,principal.ip,target.ip,target.port|windows",
+      "file": "T1003_006_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.007",
+      "name": "Proc Filesystem",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.007|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1003_007_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.007",
+      "name": "Proc Filesystem",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.007|FILE_CREATION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1003_007_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.008",
+      "name": "/etc/passwd and /etc/shadow",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.008|FILE_READ|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1003_008_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1003.008",
+      "name": "/etc/passwd and /etc/shadow",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1003.008|FILE_CREATION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1003_008_v2_sequence.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $write.target.file.full_path = /^\\/tmp\\// nocase or",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1555",
+      "name": "Credentials from Password Stores",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555|FILE_READ|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1555_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $file.target.file.full_path = /\\/\\.config\\/google-chrome\\/[^"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1555",
+      "name": "Credentials from Password Stores",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "cloud_audit",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555|USER_RESOURCE_ACCESS|metadata.description,metadata.event_type,principal.user.userid,target.resource.name,target.resource.resource_type|iaas",
+      "file": "T1555_v2_sequence.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: expect type [string], got type backstory.Resource.ResourceType for \"secret.udm.target.resource.resource_type\" (line 21)",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1555.002",
+      "name": "Securityd Memory",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.002|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1555_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1555.002",
+      "name": "Securityd Memory",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.002|FILE_CREATION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1555_002_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1555.003",
+      "name": "Credentials from Web Browsers",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.003|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1555_003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1555.003",
+      "name": "Credentials from Web Browsers",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.003|FILE_READ,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.ip|windows",
+      "file": "T1555_003_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1555.004",
+      "name": "Windows Credential Manager",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.004|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1555_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1555.004",
+      "name": "Windows Credential Manager",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.004|FILE_READ,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.ip|windows",
+      "file": "T1555_004_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1555.005",
+      "name": "Password Managers",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.005|FILE_CREATION,FILE_MODIFICATION,FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1555_005_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1555.005",
+      "name": "Password Managers",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.005|FILE_READ,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1555_005_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1555.006",
+      "name": "Cloud Secrets Management Stores",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "cloud_audit",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.006|USER_RESOURCE_ACCESS|metadata.event_type,metadata.product_event_type,principal.ip,principal.user.userid,target.resource.resource_type|iaas",
+      "file": "T1555_006_v1_telemetry.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: expect type [string], got type backstory.Resource.ResourceType for \"cloud.udm.target.resource.resource_type\" (line 28)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1555.006",
+      "name": "Cloud Secrets Management Stores",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "cloud_audit",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.006|USER_RESOURCE_ACCESS|metadata.event_type,metadata.product_event_type,principal.user.userid,target.resource.attribute.labels.key,target.resource.attribute.labels.value,target.resource.resource_type|iaas",
+      "file": "T1555_006_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1071",
+      "name": "Application Layer Protocol",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|linux",
+      "file": "T1071_v1_network.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \".\"\nexpected over (line 48)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1071",
+      "name": "Application Layer Protocol",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071|NETWORK_CONNECTION,NETWORK_FLOW|metadata.event_type,network.sent_bytes,principal.ip,target.ip,target.port|network devices",
+      "file": "T1071_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1071.001",
+      "name": "Web Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.001|NETWORK_HTTP|metadata.event_type,network.application_protocol,network.http.user_agent,principal.ip,target.hostname,target.ip,target.port|windows",
+      "file": "T1071_001_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1071.001",
+      "name": "Web Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.001|NETWORK_HTTP|metadata.event_type,principal.hostname,target.hostname,target.ip,target.port|linux",
+      "file": "T1071_001_v2_sequence.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: invalid regex pattern: ^(?!.*\\.windows\\.|.*win-|.*dc-).*: error parsing regexp: invalid or unsupported Perl syntax: `(?!` (line 18)",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1071.002",
+      "name": "File Transfer Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.002|NETWORK_CONNECTION|metadata.event_type,network.application_protocol,principal.ip,target.hostname,target.ip,target.port|linux",
+      "file": "T1071_002_v1_network.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"[\"\n'%' should come after 'in' (line 19)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1071.002",
+      "name": "File Transfer Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.002|NETWORK_FLOW,USER_LOGIN|metadata.event_type,principal.hostname,principal.ip,target.hostname,target.ip,target.port,target.user.userid|network devices",
+      "file": "T1071_002_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1071.003",
+      "name": "Mail Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.003|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|linux",
+      "file": "T1071_003_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1071.003",
+      "name": "Mail Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.003|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|network devices",
+      "file": "T1071_003_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1071.004",
+      "name": "DNS",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.004|FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|esxi",
+      "file": "T1071_004_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> re.regex($file.target.file.full_path, `/etc/(resolv\\.conf|ho"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1071.004",
+      "name": "DNS",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.004|NETWORK_DNS|metadata.event_type,network.dns.questions.name,principal.ip|windows",
+      "file": "T1071_004_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1071.005",
+      "name": "Publish/Subscribe Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.005|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.hostname,target.ip,target.port|windows",
+      "file": "T1071_005_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1071.005",
+      "name": "Publish/Subscribe Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.005|NETWORK_CONNECTION,NETWORK_FLOW|metadata.event_type,network.sent_bytes,principal.ip,target.hostname,target.ip,target.port|linux",
+      "file": "T1071_005_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1105|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|esxi",
+      "file": "T1105_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1105|NETWORK_FLOW,NETWORK_HTTP|metadata.event_type,network.received_bytes,principal.hostname,principal.ip,target.hostname,target.ip,target.port|windows",
+      "file": "T1105_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1685",
+      "name": "Disable or Modify Tools",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "cloud_audit",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685|SETTING_MODIFICATION|metadata.event_type,metadata.product_event_type,principal.ip,principal.user.userid,target.resource.name|iaas",
+      "file": "T1685_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1685",
+      "name": "Disable or Modify Tools",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Containers",
+      "log_source": "cloud_audit",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685|RESOURCE_DELETION,RESOURCE_PERMISSIONS_CHANGE|metadata.event_type,principal.ip,principal.user.userid,target.resource.name,target.resource.resource_type|containers",
+      "file": "T1685_v2_sequence.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: expect type [string], got type backstory.Resource.ResourceType for \"mod.udm.target.resource.resource_type\" (line 21)",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1685.001",
+      "name": "Disable or Modify Windows Event Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.001|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key,target.registry.registry_value_data,target.registry.registry_value_name|windows",
+      "file": "T1685_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1685.001",
+      "name": "Disable or Modify Windows Event Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.001|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1685_001_v2_sequence.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $svc.target.process.file.full_path = /\\\\(sc|net)\\.exe$/ noca",
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1685.002",
+      "name": "Disable or Modify Cloud Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Identity Provider",
+      "log_source": "m365",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.002|SETTING_MODIFICATION|metadata.event_type,principal.user.userid,target.resource.name|identity provider",
+      "file": "T1685_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1685.002",
+      "name": "Disable or Modify Cloud Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Office Suite",
+      "log_source": "m365",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.002|SETTING_MODIFICATION,USER_RESOURCE_ACCESS|metadata.event_type,principal.user.userid,target.resource.name,target.user.userid|office suite",
+      "file": "T1685_002_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1685.003",
+      "name": "Modify or Spoof Tool UI",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.003|FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1685_003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1685.003",
+      "name": "Modify or Spoof Tool UI",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.003|PROCESS_LAUNCH,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1685_003_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1685.004",
+      "name": "Disable or Modify Linux Audit System Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.004|FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1685_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1685.004",
+      "name": "Disable or Modify Linux Audit System Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.004|FILE_MODIFICATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1685_004_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1685.005",
+      "name": "Clear Windows Event Logs",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.005|FILE_DELETION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1685_005_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1685.005",
+      "name": "Clear Windows Event Logs",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.005|FILE_MODIFICATION,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.registry.registry_key|windows",
+      "file": "T1685_005_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1685.006",
+      "name": "Clear Linux or Mac System Logs",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.006|FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.file.full_path,target.file.size|linux",
+      "file": "T1685_006_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1685.006",
+      "name": "Clear Linux or Mac System Logs",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.006|FILE_DELETION,FILE_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1685_006_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    }
+  ]
+}

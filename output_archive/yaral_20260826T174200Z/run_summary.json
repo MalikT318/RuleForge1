@@ -1,0 +1,120 @@
+{
+  "run_id": "20260826T174200Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 176,
+  "gap_count": 320,
+  "generated": 5,
+  "failed": 0,
+  "with_warnings": 0,
+  "auto_fixed_total": 3,
+  "elapsed_minutes": 1.8,
+  "generated_by_priority_tier": {
+    "Impair Defenses (formerly T1562)": 5
+  },
+  "generated_by_platform": {
+    "Linux": 3,
+    "Windows": 2
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1685.003",
+      "name": "Modify or Spoof Tool UI",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.003|FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1685_003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1685.003",
+      "name": "Modify or Spoof Tool UI",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.003|PROCESS_LAUNCH,REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.command_line,target.process.file.full_path,target.registry.registry_key|windows",
+      "file": "T1685_003_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 3
+    },
+    {
+      "id": "T1685.004",
+      "name": "Disable or Modify Linux Audit System Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.004|FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1685_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1685.004",
+      "name": "Disable or Modify Linux Audit System Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.004|FILE_MODIFICATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1685_004_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1685.005",
+      "name": "Clear Windows Event Logs",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.005|FILE_DELETION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1685_005_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    }
+  ]
+}

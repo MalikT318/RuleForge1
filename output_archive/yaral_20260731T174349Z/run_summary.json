@@ -1,0 +1,537 @@
+{
+  "run_id": "20260731T174349Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 178,
+  "gap_count": 427,
+  "generated": 30,
+  "failed": 0,
+  "with_warnings": 2,
+  "auto_fixed_total": 51,
+  "elapsed_minutes": 10.4,
+  "generated_by_priority_tier": {
+    "Credential Dumping / Password Stores": 6,
+    "App-layer C2 and Ingress Tool Transfer": 14,
+    "Impair Defenses (formerly T1562)": 10
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1555.004",
+      "name": "Windows Credential Manager",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.004|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1555_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1555.004",
+      "name": "Windows Credential Manager",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.004|FILE_READ,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.ip|windows",
+      "file": "T1555_004_v2_sequence.yaral",
+      "warnings": [
+        "join variable '$net_proc_path' missing from match block (Cartesian explosion risk)"
+      ],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.005",
+      "name": "Password Managers",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.005|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux, macos, windows",
+      "file": "T1555_005_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.005",
+      "name": "Password Managers",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.005|FILE_READ,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.process.pid,target.file.full_path,target.ip|linux, macos, windows",
+      "file": "T1555_005_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.006",
+      "name": "Cloud Secrets Management Stores",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.006|USER_RESOURCE_ACCESS|metadata.event_type,metadata.product_event_type,principal.user.userid,target.resource.name|iaas (aws, gcp, azure)",
+      "file": "T1555_006_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1555.006",
+      "name": "Cloud Secrets Management Stores",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 4,
+      "priority_label": "Credential Dumping / Password Stores",
+      "fingerprint": "T1555.006|USER_RESOURCE_ACCESS|metadata.description,metadata.event_type,principal.hostname,principal.user.userid,target.resource.name|iaas",
+      "file": "T1555_006_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 14
+    },
+    {
+      "id": "T1071",
+      "name": "Application Layer Protocol",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071|FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux, macos, windows",
+      "file": "T1071_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071",
+      "name": "Application Layer Protocol",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.port,target.process.file.full_path|linux, macos, windows",
+      "file": "T1071_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.001",
+      "name": "Web Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.001|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows, linux, macos",
+      "file": "T1071_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1071.001",
+      "name": "Web Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.001|NETWORK_HTTP,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.hostname,target.ip,target.process.file.full_path|windows, linux, macos",
+      "file": "T1071_001_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.002",
+      "name": "File Transfer Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.002|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux, windows, esxi, macos",
+      "file": "T1071_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.002",
+      "name": "File Transfer Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.002|NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.port|windows, linux, macos, esxi",
+      "file": "T1071_002_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 2
+    },
+    {
+      "id": "T1071.003",
+      "name": "Mail Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.003|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux, macos, windows",
+      "file": "T1071_003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.003",
+      "name": "Mail Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.003|NETWORK_CONNECTION,NETWORK_DNS|metadata.event_type,network.dns.questions.name,principal.hostname,principal.process.file.full_path,target.ip,target.port|linux, macos, windows",
+      "file": "T1071_003_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.004",
+      "name": "DNS",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.004|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux, macos, windows",
+      "file": "T1071_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.004",
+      "name": "DNS",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.004|NETWORK_CONNECTION,NETWORK_DNS|metadata.event_type,network.dns.questions.name,principal.hostname,principal.process.file.full_path,target.ip,target.port|esxi, linux, macos, network devices, windows",
+      "file": "T1071_004_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.005",
+      "name": "Publish/Subscribe Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.005|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows, linux, macos",
+      "file": "T1071_005_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1071.005",
+      "name": "Publish/Subscribe Protocols",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1071.005|NETWORK_CONNECTION,NETWORK_FLOW|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.port|windows, linux, macos, network devices",
+      "file": "T1071_005_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1105|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows, linux, macos, esxi",
+      "file": "T1105_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 16
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 5,
+      "priority_label": "App-layer C2 and Ingress Tool Transfer",
+      "fingerprint": "T1105|FILE_CREATION,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.ip,target.port|windows, linux, macos, esxi",
+      "file": "T1105_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1685",
+      "name": "Disable or Modify Tools",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685|FILE_MODIFICATION,PROCESS_TERMINATION|metadata.event_type,principal.hostname,target.file.full_path,target.process.file.full_path|windows, linux, macos",
+      "file": "T1685_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1685",
+      "name": "Disable or Modify Tools",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 3,
+      "pivot": "threshold",
+      "rule_type": "threshold",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows, linux",
+      "file": "T1685_v3_threshold.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1685.001",
+      "name": "Disable or Modify Windows Event Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.001|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.user.userid,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1685_001_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1685.001",
+      "name": "Disable or Modify Windows Event Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 3,
+      "pivot": "threshold",
+      "rule_type": "threshold",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.001|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1685_001_v3_threshold.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1685.002",
+      "name": "Disable or Modify Cloud Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.002|SETTING_MODIFICATION,USER_RESOURCE_ACCESS|metadata.event_type,principal.user.userid,target.resource.attribute.labels.key,target.resource.attribute.labels.value,target.resource.name|iaas, saas, identity provider, office suite",
+      "file": "T1685_002_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 11
+    },
+    {
+      "id": "T1685.002",
+      "name": "Disable or Modify Cloud Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 3,
+      "pivot": "threshold",
+      "rule_type": "threshold",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.002|SETTING_DELETION,SETTING_MODIFICATION|metadata.event_type,principal.hostname,principal.user.userid,security_result.summary,target.resource.name|iaas, saas, identity provider, office suite",
+      "file": "T1685_002_v3_threshold.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1685.003",
+      "name": "Modify or Spoof Tool UI",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.003|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|linux, macos, windows",
+      "file": "T1685_003_v2_sequence.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 5
+    },
+    {
+      "id": "T1685.003",
+      "name": "Modify or Spoof Tool UI",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 3,
+      "pivot": "threshold",
+      "rule_type": "threshold",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.003|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows, linux, macos",
+      "file": "T1685_003_v3_threshold.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1685.004",
+      "name": "Disable or Modify Linux Audit System Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.004|FILE_MODIFICATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.user.userid,target.file.full_path,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1685_004_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1685.004",
+      "name": "Disable or Modify Linux Audit System Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 3,
+      "pivot": "threshold",
+      "rule_type": "threshold",
+      "population": "priority-gap",
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "fingerprint": "T1685.004|FILE_MODIFICATION|metadata.event_type,principal.hostname,principal.user.userid,target.file.full_path|linux",
+      "file": "T1685_004_v3_threshold.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    }
+  ]
+}

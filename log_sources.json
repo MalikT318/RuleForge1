@@ -1,0 +1,305 @@
+{
+  "name": "Detection library log-source taxonomy and target mix",
+  "notes": [
+    "Drives which log source family each generated rule targets, and the overall",
+    "mix of the library. Edit 'weight' values to reshape the library - they are",
+    "relative, not required to sum to 100.",
+    "",
+    "'platforms' lists the ATT&CK platforms a family can serve. A rule is only",
+    "assigned to a family if the technique actually supports one of those platforms,",
+    "'tactics' lists the ATT&CK tactics a family can realistically observe. A rule is",
+    "only assigned to a family when the technique matches BOTH platform and tactic -",
+    "otherwise you get impossible pairings (e.g. registry persistence via firewall logs)",
+    "which the model correctly refuses. '*' means all tactics.",
+    "",
+    "so a Linux-only technique never produces a firewall-only or Windows rule.",
+    "",
+    "NOTE ON EDR PRODUCTS: Chronicle's UDM normalises CrowdStrike, Sysmon, Defender",
+    "and SentinelOne into the same event types, so there is no separate",
+    "'crowdstrike' family - windows_endpoint and linux_endpoint already cover those",
+    "clients. Vendor-specific rules would reduce portability.",
+    "",
+    "WEIGHT RATIONALE (public sources, reviewed 2026-08):",
+    "- ASD/NSA joint 'Priority logs for SIEM ingestion' (2025) priority order:",
+    "  EDR(1), network devices(2), Domain Controller(3), Active Directory(4),",
+    "  Windows endpoint(5), virtualisation(6), cloud(8), containers(9),",
+    "  Linux endpoint auditing(13), macOS(14).",
+    "- Practitioner consensus: authentication and cloud audit give the highest",
+    "  detection value per GB; firewall and DNS are highest volume, lowest value/GB.",
+    "- Mandiant M-Trends 2026 (500k+ IR hours, 2025): exploits 32%, voice phishing",
+    "  11%, prior compromise 10%, stolen credentials 9%, email phishing 6%. Cloud",
+    "  intrusions: voice phishing 23%, third-party 17%, stolen creds 16%.",
+    "  Also notes increased targeting of virtualisation and backup infrastructure.",
+    "- Cisco Talos IR Q1 2026: valid accounts = 24% of engagements.",
+    "=> Identity raised 10->16, Linux lowered 18->13, virtualisation 5->6,",
+    "   firewall 20->17. Replace with real TELUS client distributions when available.",
+    "",
+    "CAVEAT: the government guidance is enterprise-Windows-centric and ranks",
+    "ingestion order for one enterprise, not rule mix for an MSSP library. If TELUS",
+    "clients run large Linux fleets, raise linux_endpoint accordingly - actual client",
+    "telemetry should override these defaults."
+  ],
+  "families": [
+    {
+      "id": "firewall",
+      "label": "Firewall / proxy / network perimeter",
+      "weight": 17,
+      "platforms": [
+        "Windows",
+        "Linux",
+        "Network Devices",
+        "IaaS",
+        "PRE",
+        "macOS",
+        "Containers",
+        "ESXi"
+      ],
+      "udm_events": [
+        "NETWORK_CONNECTION",
+        "NETWORK_FLOW",
+        "NETWORK_HTTP",
+        "NETWORK_DNS"
+      ],
+      "guidance": "Firewall, proxy, and perimeter logs. Detect the network-observable behaviour: destination patterns, ports, protocol anomalies, connection volume and timing. Exclude internal address space with a reference list rather than hardcoded ranges. No endpoint process fields - a firewall log does not know the initiating process.",
+      "tactics": [
+        "command-and-control",
+        "exfiltration",
+        "initial-access",
+        "reconnaissance",
+        "lateral-movement",
+        "impact",
+        "resource-development"
+      ]
+    },
+    {
+      "id": "windows_endpoint",
+      "label": "Windows endpoint (EDR / Sysmon / Security log)",
+      "weight": 22,
+      "platforms": [
+        "Windows"
+      ],
+      "udm_events": [
+        "PROCESS_LAUNCH",
+        "PROCESS_OPEN",
+        "REGISTRY_MODIFICATION",
+        "REGISTRY_CREATION",
+        "FILE_CREATION",
+        "FILE_MODIFICATION",
+        "SCHEDULED_TASK_CREATION",
+        "USER_LOGIN"
+      ],
+      "guidance": "Windows endpoint telemetry from any EDR (CrowdStrike, Defender, SentinelOne) or Sysmon - UDM normalises them, so never reference a vendor name. Windows conventions: process lineage, command lines, registry keys, service and scheduled-task creation.",
+      "tactics": [
+        "*"
+      ]
+    },
+    {
+      "id": "linux_endpoint",
+      "label": "Linux endpoint (EDR / auditd)",
+      "weight": 13,
+      "platforms": [
+        "Linux"
+      ],
+      "udm_events": [
+        "PROCESS_LAUNCH",
+        "FILE_CREATION",
+        "FILE_MODIFICATION",
+        "USER_LOGIN"
+      ],
+      "guidance": "Linux endpoint telemetry from EDR or auditd. Use Linux conventions only: /etc, /var, /tmp, /proc, /dev/shm, cron paths, systemd units, shell history. Never Windows paths, .exe names, or registry keys.",
+      "tactics": [
+        "*"
+      ]
+    },
+    {
+      "id": "ips",
+      "label": "IDS / IPS / network security appliance",
+      "weight": 7,
+      "platforms": [
+        "Windows",
+        "Linux",
+        "Network Devices",
+        "PRE",
+        "IaaS",
+        "macOS"
+      ],
+      "udm_events": [
+        "NETWORK_CONNECTION",
+        "NETWORK_HTTP",
+        "NETWORK_FLOW"
+      ],
+      "guidance": "IDS/IPS and network security appliance logs. Focus on detection/prevention verdicts, repeated blocked attempts, and traffic-pattern anomalies. Reference security_result fields cautiously - vendor mapping to UDM is inconsistent, so do not build core logic on security_result.action alone.",
+      "tactics": [
+        "command-and-control",
+        "exfiltration",
+        "initial-access",
+        "reconnaissance",
+        "lateral-movement",
+        "execution",
+        "impact"
+      ]
+    },
+    {
+      "id": "identity",
+      "label": "Identity provider (Entra ID / Okta / AD)",
+      "weight": 16,
+      "platforms": [
+        "Identity Provider",
+        "SaaS",
+        "IaaS",
+        "Windows"
+      ],
+      "udm_events": [
+        "USER_LOGIN",
+        "USER_LOGOUT",
+        "USER_CREATION",
+        "USER_CHANGE_PASSWORD",
+        "USER_CHANGE_PERMISSIONS",
+        "GROUP_MODIFICATION"
+      ],
+      "guidance": "Identity provider sign-in and directory audit logs. Authentication anomalies, MFA patterns, privilege and group changes, service-principal or app-consent abuse. No endpoint process fields.",
+      "tactics": [
+        "credential-access",
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "lateral-movement",
+        "discovery",
+        "defense-impairment",
+        "stealth",
+        "impact",
+        "collection"
+      ]
+    },
+    {
+      "id": "cloud_audit",
+      "label": "Cloud control plane (CloudTrail / Azure Activity / GCP Audit)",
+      "weight": 9,
+      "platforms": [
+        "IaaS",
+        "SaaS",
+        "Containers"
+      ],
+      "udm_events": [
+        "USER_RESOURCE_ACCESS",
+        "RESOURCE_CREATION",
+        "RESOURCE_DELETION",
+        "RESOURCE_PERMISSIONS_CHANGE",
+        "SETTING_MODIFICATION",
+        "USER_LOGIN"
+      ],
+      "guidance": "Cloud provider audit logs. API-level activity: resource creation and deletion, permission and policy changes, key and secret access, logging or guardrail tampering. No endpoint process fields.",
+      "tactics": [
+        "*"
+      ]
+    },
+    {
+      "id": "m365",
+      "label": "Microsoft 365 / Google Workspace",
+      "weight": 6,
+      "platforms": [
+        "Office Suite",
+        "SaaS",
+        "Identity Provider"
+      ],
+      "udm_events": [
+        "USER_LOGIN",
+        "USER_RESOURCE_ACCESS",
+        "USER_RESOURCE_UPDATE_CONTENT",
+        "EMAIL_TRANSACTION",
+        "SETTING_MODIFICATION"
+      ],
+      "guidance": "Microsoft 365 or Google Workspace unified audit logs. Mailbox rule creation and forwarding, mass file access or download, sharing-permission changes, tenant setting modification. No endpoint process fields.",
+      "tactics": [
+        "initial-access",
+        "collection",
+        "exfiltration",
+        "persistence",
+        "credential-access",
+        "discovery",
+        "impact",
+        "defense-impairment"
+      ]
+    },
+    {
+      "id": "vmware_esxi",
+      "label": "VMware / ESXi / hypervisor",
+      "weight": 6,
+      "platforms": [
+        "ESXi"
+      ],
+      "udm_events": [
+        "USER_LOGIN",
+        "PROCESS_LAUNCH",
+        "SETTING_MODIFICATION"
+      ],
+      "guidance": "ESXi and hypervisor management logs (hostd, vmkernel, shell). SSH or shell enablement, datastore access, VM manipulation, host configuration changes, management-plane authentication.",
+      "tactics": [
+        "*"
+      ]
+    },
+    {
+      "id": "container",
+      "label": "Container runtime / Kubernetes",
+      "weight": 3,
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Linux"
+      ],
+      "udm_events": [
+        "PROCESS_LAUNCH",
+        "RESOURCE_CREATION",
+        "USER_RESOURCE_ACCESS",
+        "SETTING_MODIFICATION"
+      ],
+      "guidance": "Container runtime and Kubernetes audit logs. Privileged or host-mounted container creation, exec into running containers, service-account token abuse, control-plane API calls.",
+      "tactics": [
+        "*"
+      ]
+    },
+    {
+      "id": "dns",
+      "label": "DNS query / resolver logs",
+      "weight": 1,
+      "platforms": [
+        "Windows",
+        "Linux",
+        "Network Devices",
+        "IaaS",
+        "PRE",
+        "macOS",
+        "Containers"
+      ],
+      "udm_events": [
+        "NETWORK_DNS"
+      ],
+      "guidance": "DNS query and resolver logs. Detect C2 and exfiltration patterns: high-entropy or algorithmically generated domains, abnormal query volume or record types (TXT/NULL), long subdomain labels, newly-observed domains. Exclude known-good domains via a reference list. No endpoint process fields.",
+      "tactics": [
+        "command-and-control",
+        "exfiltration",
+        "initial-access",
+        "reconnaissance",
+        "resource-development"
+      ]
+    },
+    {
+      "id": "macos_endpoint",
+      "label": "macOS endpoint (EDR / unified log)",
+      "weight": 1,
+      "platforms": [
+        "macOS"
+      ],
+      "tactics": [
+        "*"
+      ],
+      "udm_events": [
+        "PROCESS_LAUNCH",
+        "FILE_CREATION",
+        "FILE_MODIFICATION",
+        "USER_LOGIN"
+      ],
+      "guidance": "macOS endpoint telemetry from EDR or the unified log. Use macOS conventions only: launchd plists in /Library/LaunchAgents and /Library/LaunchDaemons, /Users/*/Library paths, osascript, xattr, codesign. Never Windows paths, .exe names, or registry keys. Ranked lowest priority in the ASD/NSA guidance - kept at minimal weight so macOS-only techniques still have a valid home rather than being mis-assigned to an impossible log source."
+    }
+  ]
+}

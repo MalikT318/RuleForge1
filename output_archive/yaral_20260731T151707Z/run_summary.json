@@ -1,0 +1,130 @@
+{
+  "run_id": "20260731T151707Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 178,
+  "gap_count": 287,
+  "generated": 10,
+  "failed": 0,
+  "with_warnings": 0,
+  "elapsed_minutes": 3.5,
+  "generated_by_priority_tier": {
+    "Impair Defenses (formerly T1562)": 10
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1685",
+      "name": "Disable or Modify Tools",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "file": "T1685.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1685.001",
+      "name": "Disable or Modify Windows Event Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "file": "T1685_001.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1685.002",
+      "name": "Disable or Modify Cloud Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "file": "T1685_002.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1685.003",
+      "name": "Modify or Spoof Tool UI",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "file": "T1685_003.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1685.004",
+      "name": "Disable or Modify Linux Audit System Log",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "file": "T1685_004.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1685.005",
+      "name": "Clear Windows Event Logs",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "file": "T1685_005.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1685.006",
+      "name": "Clear Linux or Mac System Logs",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "file": "T1685_006.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1686",
+      "name": "Disable or Modify System Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "file": "T1686.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1686.001",
+      "name": "Cloud Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "file": "T1686_001.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1686.002",
+      "name": "Network Device Firewall",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "priority_tier": 6,
+      "priority_label": "Impair Defenses (formerly T1562)",
+      "file": "T1686_002.yaral",
+      "warnings": []
+    }
+  ]
+}

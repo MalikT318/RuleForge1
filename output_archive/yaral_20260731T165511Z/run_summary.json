@@ -1,0 +1,890 @@
+{
+  "run_id": "20260731T165511Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 178,
+  "gap_count": 507,
+  "generated": 50,
+  "failed": 0,
+  "with_warnings": 16,
+  "elapsed_minutes": 16.7,
+  "generated_by_priority_tier": {
+    "Process Injection": 16,
+    "Command and Scripting Interpreter": 28,
+    "Valid Accounts (incl. cloud)": 6
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1055.005",
+      "name": "Thread Local Storage",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.005|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_005_v1_telemetry.yaral",
+      "warnings": [
+        "BANNED: named attacker tool 'procdump'"
+      ]
+    },
+    {
+      "id": "T1055.005",
+      "name": "Thread Local Storage",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.005|PROCESS_INJECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_005_v2_sequence.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ]
+    },
+    {
+      "id": "T1055.008",
+      "name": "Ptrace System Calls",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.008|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.file.full_path|linux",
+      "file": "T1055_008_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1055.008",
+      "name": "Ptrace System Calls",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.008|NETWORK_CONNECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.process.pid,target.ip,target.port,target.process.file.full_path,target.process.pid|linux",
+      "file": "T1055_008_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1055.009",
+      "name": "Proc Memory",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.009|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1055_009_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1055.009",
+      "name": "Proc Memory",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.009|FILE_MODIFICATION,FILE_READ|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1055_009_v2_sequence.yaral",
+      "warnings": [
+        "join variable '$maps_path' missing from match block (Cartesian explosion risk)"
+      ]
+    },
+    {
+      "id": "T1055.011",
+      "name": "Extra Window Memory Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.011|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_011_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ]
+    },
+    {
+      "id": "T1055.011",
+      "name": "Extra Window Memory Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.011|PROCESS_INJECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.process.pid,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1055_011_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1055.012",
+      "name": "Process Hollowing",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.012|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.process.pid,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1055_012_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ]
+    },
+    {
+      "id": "T1055.012",
+      "name": "Process Hollowing",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.012|NETWORK_CONNECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.process.file.full_path|windows",
+      "file": "T1055_012_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1055.013",
+      "name": "Process Doppelg\u00e4nging",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.013|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,target.process.access_mask,target.process.file.full_path|windows",
+      "file": "T1055_013_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ]
+    },
+    {
+      "id": "T1055.013",
+      "name": "Process Doppelg\u00e4nging",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.013|FILE_CREATION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_013_v2_sequence.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ]
+    },
+    {
+      "id": "T1055.014",
+      "name": "VDSO Hijacking",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.014|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux",
+      "file": "T1055_014_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1055.014",
+      "name": "VDSO Hijacking",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.014|PROCESS_MODULE_LOAD,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|linux",
+      "file": "T1055_014_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1055.015",
+      "name": "ListPlanting",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.015|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_015_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1055.015",
+      "name": "ListPlanting",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 1,
+      "priority_label": "Process Injection",
+      "fingerprint": "T1055.015|PROCESS_INJECTION,PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1055_015_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059",
+      "name": "Command and Scripting Interpreter",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows, linux, macos",
+      "file": "T1059_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059",
+      "name": "Command and Scripting Interpreter",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.port,target.process.file.full_path|windows, linux, macos",
+      "file": "T1059_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.001",
+      "name": "PowerShell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.001|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1059_001_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ]
+    },
+    {
+      "id": "T1059.001",
+      "name": "PowerShell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.001|FILE_CREATION,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.ip|windows",
+      "file": "T1059_001_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.002",
+      "name": "AppleScript",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.002|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|macos",
+      "file": "T1059_002_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.002",
+      "name": "AppleScript",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.002|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.process.file.full_path|macos",
+      "file": "T1059_002_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.003",
+      "name": "Windows Command Shell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.003|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1059_003_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ]
+    },
+    {
+      "id": "T1059.003",
+      "name": "Windows Command Shell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.003|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.process.parent_pid,target.ip,target.process.file.full_path,target.process.pid|windows",
+      "file": "T1059_003_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.004",
+      "name": "Unix Shell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.004|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux, macos, esxi",
+      "file": "T1059_004_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.004",
+      "name": "Unix Shell",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.004|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.process.file.full_path|linux, macos, esxi",
+      "file": "T1059_004_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.005",
+      "name": "Visual Basic",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.005|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1059_005_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ]
+    },
+    {
+      "id": "T1059.005",
+      "name": "Visual Basic",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.005|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.process.file.full_path|windows",
+      "file": "T1059_005_v2_sequence.yaral",
+      "warnings": [
+        "join variable '$child_process_path' missing from match block (Cartesian explosion risk)"
+      ]
+    },
+    {
+      "id": "T1059.006",
+      "name": "Python",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.006|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux, macos, windows, esxi",
+      "file": "T1059_006_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.006",
+      "name": "Python",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.006|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.port,target.process.file.full_path|esxi, linux, macos, windows",
+      "file": "T1059_006_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.007",
+      "name": "JavaScript",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.007|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux, macos, windows",
+      "file": "T1059_007_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ]
+    },
+    {
+      "id": "T1059.007",
+      "name": "JavaScript",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.007|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.process.file.full_path|linux, macos, windows",
+      "file": "T1059_007_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.008",
+      "name": "Network Device CLI",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.008|FILE_MODIFICATION|metadata.event_type,principal.hostname,principal.user.userid,target.file.full_path|network devices (cisco ios/ios-xe/nx-os, juniper junos, palo alto pan-os, fortinet fortios)",
+      "file": "T1059_008_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ]
+    },
+    {
+      "id": "T1059.008",
+      "name": "Network Device CLI",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.008|SETTING_MODIFICATION,USER_LOGIN|metadata.event_type,network.application_protocol,principal.hostname,principal.ip,principal.user.userid,target.user.userid|network devices (cisco ios/ios-xe, juniper junos, arista eos, palo alto pan-os)",
+      "file": "T1059_008_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.009",
+      "name": "Cloud API",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.009|FILE_CREATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path|windows, linux, macos",
+      "file": "T1059_009_v1_telemetry.yaral",
+      "warnings": [
+        "BANNED: named attacker tool 'psexec'"
+      ]
+    },
+    {
+      "id": "T1059.009",
+      "name": "Cloud API",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.009|RESOURCE_CREATION,USER_LOGIN|metadata.event_type,principal.user.userid,target.resource.resource_type|iaas, identity provider, office suite, saas",
+      "file": "T1059_009_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.010",
+      "name": "AutoHotKey & AutoIT",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.010|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1059_010_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.010",
+      "name": "AutoHotKey & AutoIT",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.010|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.process.file.full_path|windows",
+      "file": "T1059_010_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.011",
+      "name": "Lua",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.011|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|linux, windows, macos",
+      "file": "T1059_011_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.011",
+      "name": "Lua",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.011|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.hostname,target.ip,target.process.file.full_path|linux, windows, macos",
+      "file": "T1059_011_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.012",
+      "name": "Hypervisor CLI",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.012|FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|esxi",
+      "file": "T1059_012_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.012",
+      "name": "Hypervisor CLI",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.012|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip|esxi",
+      "file": "T1059_012_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.013",
+      "name": "Container CLI/API",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.013|FILE_CREATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path|containers, linux",
+      "file": "T1059_013_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1059.013",
+      "name": "Container CLI/API",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 2,
+      "priority_label": "Command and Scripting Interpreter",
+      "fingerprint": "T1059.013|NETWORK_CONNECTION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.ip,target.port,target.process.command_line|containers, linux",
+      "file": "T1059_013_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078|SETTING_MODIFICATION|metadata.description,metadata.event_type,principal.user.userid,security_result.description,target.resource.attribute.labels,target.user.userid|windows, linux, macos, identity provider, saas, iaas",
+      "file": "T1078_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ]
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078|USER_LOGIN|metadata.event_type,principal.ip,principal.user.userid|windows, linux, macos, iaas, saas, identity provider, network devices, office suite",
+      "file": "T1078_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1078.001",
+      "name": "Default Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.001|REGISTRY_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1078_001_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1078.001",
+      "name": "Default Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.001|USER_LOGIN,USER_RESOURCE_ACCESS|metadata.event_type,principal.hostname,principal.user.userid|windows, linux, macos, iaas, saas, network devices, esxi, containers",
+      "file": "T1078_001_v2_sequence.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1078.002",
+      "name": "Domain Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.002|USER_LOGIN|extensions.auth.mechanism,metadata.event_type,principal.hostname,target.hostname,target.user.userid|windows",
+      "file": "T1078_002_v1_telemetry.yaral",
+      "warnings": []
+    },
+    {
+      "id": "T1078.002",
+      "name": "Domain Accounts",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "priority_tier": 3,
+      "priority_label": "Valid Accounts (incl. cloud)",
+      "fingerprint": "T1078.002|USER_LOGIN|metadata.event_type,principal.hostname,target.hostname,target.user.user_display_name,target.user.userid|windows, linux, macos, esxi",
+      "file": "T1078_002_v2_sequence.yaral",
+      "warnings": [
+        "join variable '$dest_host' missing from match block (Cartesian explosion risk)",
+        "join variable '$source_host' missing from match block (Cartesian explosion risk)",
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ]
+    }
+  ]
+}

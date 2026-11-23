@@ -1,0 +1,2135 @@
+{
+  "run_id": "20260909T222434Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 176,
+  "gap_count": 212,
+  "generated": 100,
+  "failed": 0,
+  "with_warnings": 38,
+  "auto_fixed_total": 29,
+  "chronicle_verified_ok": 85,
+  "chronicle_verified_failed": 15,
+  "elapsed_minutes": 32.2,
+  "generated_by_priority_tier": {
+    "Discovery (System / Network / Account)": 7,
+    "Data Encrypted for Impact / Cloud Theft": 6,
+    "Unprioritized (long tail)": 87
+  },
+  "generated_by_platform": {
+    "Linux": 28,
+    "Windows": 48,
+    "Office Suite": 6,
+    "SaaS": 2,
+    "IaaS": 1,
+    "ESXi": 9,
+    "Network Devices": 3,
+    "Identity Provider": 2,
+    "Containers": 1
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1087.001",
+      "name": "Local Account",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1087.001|FILE_READ,NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.ip,target.port|linux",
+      "file": "T1087_001_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1087.002",
+      "name": "Domain Account",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1087.002|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|windows",
+      "file": "T1087_002_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1087.002",
+      "name": "Domain Account",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1087.002|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|linux",
+      "file": "T1087_002_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1087.003",
+      "name": "Email Account",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Office Suite",
+      "log_source": "m365",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1087.003|USER_RESOURCE_ACCESS|metadata.event_type,principal.user.userid,target.resource.name|office suite",
+      "file": "T1087_003_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1087.003",
+      "name": "Email Account",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "identity",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1087.003|USER_LOGIN,USER_RESOURCE_ACCESS|metadata.event_type,principal.ip,principal.user.userid,target.application,target.resource.name|windows",
+      "file": "T1087_003_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1087.004",
+      "name": "Cloud Account",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "SaaS",
+      "log_source": "identity",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1087.004|USER_RESOURCE_ACCESS|metadata.event_type,principal.user.userid,target.resource.attribute.labels,target.resource.name|saas",
+      "file": "T1087_004_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $cloud.target.resource.attribute.labels[\"operation_name\"] = "
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1087.004",
+      "name": "Cloud Account",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "IaaS",
+      "log_source": "identity",
+      "priority_tier": 9,
+      "priority_label": "Discovery (System / Network / Account)",
+      "fingerprint": "T1087.004|USER_RESOURCE_ACCESS|metadata.description,metadata.event_type,principal.user.userid,target.resource.attribute.labels.value,target.resource.name|iaas",
+      "file": "T1087_004_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1041",
+      "name": "Exfiltration Over C2 Channel",
+      "tactics": [
+        "exfiltration"
+      ],
+      "variant": 1,
+      "pivot": "network",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 10,
+      "priority_label": "Data Encrypted for Impact / Cloud Theft",
+      "fingerprint": "T1041|NETWORK_CONNECTION|metadata.event_type,network.sent_bytes,principal.ip,target.domain.name,target.ip|windows",
+      "file": "T1041_v1_network.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1041",
+      "name": "Exfiltration Over C2 Channel",
+      "tactics": [
+        "exfiltration"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 10,
+      "priority_label": "Data Encrypted for Impact / Cloud Theft",
+      "fingerprint": "T1041|NETWORK_CONNECTION,NETWORK_FLOW|metadata.event_type,network.direction,network.sent_bytes,principal.ip,target.hostname,target.ip,target.port|linux",
+      "file": "T1041_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1486",
+      "name": "Data Encrypted for Impact",
+      "tactics": [
+        "impact"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 10,
+      "priority_label": "Data Encrypted for Impact / Cloud Theft",
+      "fingerprint": "T1486|FILE_MODIFICATION|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path|esxi",
+      "file": "T1486_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1486",
+      "name": "Data Encrypted for Impact",
+      "tactics": [
+        "impact"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 10,
+      "priority_label": "Data Encrypted for Impact / Cloud Theft",
+      "fingerprint": "T1486|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.process.command_line|windows",
+      "file": "T1486_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1530",
+      "name": "Data from Cloud Storage",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Office Suite",
+      "log_source": "m365",
+      "priority_tier": 10,
+      "priority_label": "Data Encrypted for Impact / Cloud Theft",
+      "fingerprint": "T1530|USER_RESOURCE_ACCESS|metadata.event_type,metadata.product_event_type,principal.user.userid,target.resource.name,target.url|office suite",
+      "file": "T1530_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1530",
+      "name": "Data from Cloud Storage",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "SaaS",
+      "log_source": "identity",
+      "priority_tier": 10,
+      "priority_label": "Data Encrypted for Impact / Cloud Theft",
+      "fingerprint": "T1530|USER_LOGIN,USER_RESOURCE_ACCESS|metadata.event_type,principal.ip,principal.user.userid,security_result.severity,target.resource.resource_type|saas",
+      "file": "T1530_v2_sequence.yaral",
+      "warnings": [
+        "UDM-CHECK: unverified field path(s): metadata.event_timestamp.seconds"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1001",
+      "name": "Data Obfuscation",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "ESXi",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1001|NETWORK_CONNECTION|metadata.event_type,network.received_bytes,network.sent_bytes,principal.ip,target.domain.name,target.ip,target.port|esxi",
+      "file": "T1001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1001.001",
+      "name": "Junk Data",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1001.001|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1001_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1001.002",
+      "name": "Steganography",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1001.002|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|esxi",
+      "file": "T1001_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1001.003",
+      "name": "Protocol or Service Impersonation",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1001.003|NETWORK_CONNECTION|metadata.event_type,principal.process.file.full_path,target.ip,target.port|windows",
+      "file": "T1001_003_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1006",
+      "name": "Direct Volume Access",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1006|NETWORK_FLOW|metadata.event_type,network.sent_bytes,principal.ip,target.domain,target.ip,target.port|network devices",
+      "file": "T1006_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: type mismatch between \"%global_allowed_domains\" of type string and \"net.udm.target.domain\" of type message"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1007",
+      "name": "System Service Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1007|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1007_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1008",
+      "name": "Fallback Channels",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1008|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.hostname,target.ip,target.port|windows",
+      "file": "T1008_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1011",
+      "name": "Exfiltration Over Other Network Medium",
+      "tactics": [
+        "exfiltration"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1011|NETWORK_FLOW|metadata.event_type,network.sent_bytes,principal.ip,target.domain.name,target.ip,target.port|linux",
+      "file": "T1011_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1011.001",
+      "name": "Exfiltration Over Bluetooth",
+      "tactics": [
+        "exfiltration"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1011.001|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1011_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1014",
+      "name": "Rootkit",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1014|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key,target.registry.registry_value_data,target.registry.registry_value_name|windows",
+      "file": "T1014_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: invalid regex pattern: (?i)(\\\\Users\\\\[^\\\\]+\\\\(AppData|Downloads|Desktop|Documents)|\\\\Temp\\\\|\\\\tmp\\\\|\\\\ProgramData\\\\(?!Microsoft)|\\\\Windows\\\\Temp): error parsing regexp: in (line 44)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1025",
+      "name": "Data from Removable Media",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1025|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1025_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1029",
+      "name": "Scheduled Transfer",
+      "tactics": [
+        "exfiltration"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1029|NETWORK_FLOW|metadata.event_type,network.sent_bytes,principal.ip,target.hostname,target.ip,target.port|windows",
+      "file": "T1029_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: expect type [int], got type message for \"net.udm.metadata.event_timestamp\" (line 47)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1030",
+      "name": "Data Transfer Size Limits",
+      "tactics": [
+        "exfiltration"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1030|NETWORK_FLOW|metadata.event_type,network.received_bytes,network.sent_bytes,principal.ip,target.domain.name,target.ip,target.port|linux",
+      "file": "T1030_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1037",
+      "name": "Boot or Logon Initialization Scripts",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1037|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|esxi",
+      "file": "T1037_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1037.001",
+      "name": "Logon Script (Windows)",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1037.001|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key|windows",
+      "file": "T1037_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1037.003",
+      "name": "Network Logon Script",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1037.003|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key,target.registry.registry_value_data,target.registry.registry_value_name|windows",
+      "file": "T1037_003_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"i\"\nexpected ) (line 25)",
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 2,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1037.004",
+      "name": "RC Scripts",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1037.004|SETTING_MODIFICATION|metadata.event_type,principal.ip,principal.user.userid,target.file.full_path,target.resource.name|network devices",
+      "file": "T1037_004_v1_baseline.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> // nocase handles mixed-case syslog representations."
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1039",
+      "name": "Data from Network Shared Drive",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1039|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1039_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1052",
+      "name": "Exfiltration Over Physical Medium",
+      "tactics": [
+        "exfiltration"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1052|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1052_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: tokenizing: unable to tokenize: invalid char escape"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1052.001",
+      "name": "Exfiltration over USB",
+      "tactics": [
+        "exfiltration"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1052.001|FILE_CREATION,FILE_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path,target.file.size|linux",
+      "file": "T1052_001_v1_baseline.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $file.target.file.full_path = /^\\/media\\// nocase or"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1074",
+      "name": "Data Staged",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1074|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1074_v1_baseline.yaral",
+      "warnings": [
+        "UNKNOWN REFERENCE LIST '%TEMP' - must be one of: global_allowed_admin_tools, global_allowed_admin_users, global_allowed_backup_processes, global_allowed_cloud_principals, global_allowed_domains, global_allowed_mgmt_sources, ..."
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1074.001",
+      "name": "Local Data Staging",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1074.001|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|esxi",
+      "file": "T1074_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1074.002",
+      "name": "Remote Data Staging",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1074.002|NETWORK_FLOW|metadata.event_type,network.sent_bytes,principal.ip,target.hostname,target.ip|windows",
+      "file": "T1074_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1080",
+      "name": "Taint Shared Content",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1080|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1080_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1091",
+      "name": "Replication Through Removable Media",
+      "tactics": [
+        "lateral-movement",
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1091|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1091_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: tokenizing: unable to tokenize: invalid char escape",
+        "Windows path/exe regex without case-insensitivity (add 'nocase' or '(?i)')"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1092",
+      "name": "Communication Through Removable Media",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1092|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|windows",
+      "file": "T1092_v1_baseline.yaral",
+      "warnings": [
+        "Windows path/exe regex without case-insensitivity (add 'nocase' or '(?i)')"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1095",
+      "name": "Non-Application Layer Protocol",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1095|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|esxi",
+      "file": "T1095_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1104",
+      "name": "Multi-Stage Channels",
+      "tactics": [
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1104|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.file.full_path|windows",
+      "file": "T1104_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1114",
+      "name": "Email Collection",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1114|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1114_v1_baseline.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $proc.target.process.command_line = /\\/var\\/(mail|spool\\/mai"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1114.001",
+      "name": "Local Email Collection",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1114.001|FILE_READ|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1114_001_v1_baseline.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $file.target.file.full_path = /\\\\AppData\\\\Local\\\\Microsoft\\\\"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1114.002",
+      "name": "Remote Email Collection",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Office Suite",
+      "log_source": "m365",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1114.002|USER_RESOURCE_ACCESS|metadata.event_type,principal.user.userid,target.resource.name,target.user.userid|office suite",
+      "file": "T1114_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1114.003",
+      "name": "Email Forwarding Rule",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Office Suite",
+      "log_source": "m365",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1114.003|SETTING_MODIFICATION|metadata.event_type,metadata.product_event_type,principal.user.userid,target.resource.attribute.labels|office suite",
+      "file": "T1114_003_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1115",
+      "name": "Clipboard Data",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1115|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1115_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1120",
+      "name": "Peripheral Device Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1120|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1120_v1_baseline.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> or $proc.target.process.command_line = /Win32_USB/ nocase"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1123",
+      "name": "Audio Capture",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1123|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1123_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1125",
+      "name": "Video Capture",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1125|NETWORK_CONNECTION|metadata.event_type,network.sent_bytes,principal.ip,target.hostname,target.ip,target.port|linux",
+      "file": "T1125_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1129",
+      "name": "Shared Modules",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1129|NETWORK_CONNECTION|metadata.event_type,principal.hostname,principal.ip,target.domain.name,target.ip,target.port|linux",
+      "file": "T1129_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1134",
+      "name": "Access Token Manipulation",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1134|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path,target.user.userid|windows",
+      "file": "T1134_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1134.001",
+      "name": "Token Impersonation/Theft",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1134.001|PROCESS_OPEN|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.file.full_path|windows",
+      "file": "T1134_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1134.002",
+      "name": "Create Process with Token",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1134.002|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1134_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 15,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1134.003",
+      "name": "Make and Impersonate Token",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1134.003|USER_LOGIN|extensions.auth.auth_details,metadata.event_type,principal.process.file.full_path,principal.user.userid,target.user.userid|windows",
+      "file": "T1134_003_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 2,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1134.004",
+      "name": "Parent PID Spoofing",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1134.004|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1134_004_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1134.005",
+      "name": "SID-History Injection",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1134.005|USER_CHANGE_PERMISSIONS|metadata.event_type,principal.process.file.full_path,principal.user.userid,security_result.description,target.resource.name,target.user.attribute.labels.key,target.user.attribute.labels.value|windows",
+      "file": "T1134_005_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1136",
+      "name": "Create Account",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "ESXi",
+      "log_source": "cloud_audit",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1136|USER_CREATION|metadata.event_type,principal.user.userid,target.user.userid|esxi",
+      "file": "T1136_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1136.002",
+      "name": "Domain Account",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1136.002|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.hostname,target.ip,target.port|linux",
+      "file": "T1136_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1136.003",
+      "name": "Cloud Account",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Identity Provider",
+      "log_source": "identity",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1136.003|USER_CREATION|metadata.event_type,principal.user.userid,target.user.userid|identity provider",
+      "file": "T1136_003_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1137",
+      "name": "Office Application Startup",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1137|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key|windows",
+      "file": "T1137_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 2,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1137.001",
+      "name": "Office Template Macros",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Office Suite",
+      "log_source": "m365",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1137.001|FILE_MODIFICATION|metadata.event_type,principal.user.userid,target.file.full_path|office suite",
+      "file": "T1137_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1137.002",
+      "name": "Office Test",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1137.002|REGISTRY_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key|windows",
+      "file": "T1137_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1137.004",
+      "name": "Outlook Home Page",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1137.004|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1137_004_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"$\"\ninvalid operator in events predicate (line 26)",
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 1,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1137.005",
+      "name": "Outlook Rules",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Office Suite",
+      "log_source": "m365",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1137.005|SETTING_MODIFICATION|metadata.event_type,metadata.product_event_type,principal.user.userid,security_result.description,target.resource.name|office suite",
+      "file": "T1137_005_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1137.006",
+      "name": "Add-ins",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1137.006|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.registry.registry_key|windows",
+      "file": "T1137_006_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 1,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1176",
+      "name": "Software Extensions",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1176|NETWORK_HTTP|metadata.event_type,network.http.request_url,principal.ip,target.hostname,target.port|linux",
+      "file": "T1176_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: getting field descriptors: accessing field \"udm.network.http.request_url\": field \"request_url\" does not exist, valid fields are: \"method\", \"referral_url\", \"user_agent\", \"r (line 29)",
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> or $net.network.http.request_url = /\\.crx(\\?|$)/ nocase",
+        "UDM-CHECK: unverified field path(s): network.http.request_url"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1176.001",
+      "name": "Browser Extensions",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1176.001|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1176_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1176.002",
+      "name": "IDE Extensions",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1176.002|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.hostname,target.ip,target.port|linux",
+      "file": "T1176_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1185",
+      "name": "Browser Session Hijacking",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1185|PROCESS_OPEN|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1185_v1_baseline.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $proc.principal.process.file.full_path = /\\\\(powershell|pwsh"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1187",
+      "name": "Forced Authentication",
+      "tactics": [
+        "credential-access"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1187|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.domain,target.ip,target.port|windows",
+      "file": "T1187_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: type mismatch between \"%global_allowed_domains\" of type string and \"net.udm.target.domain\" of type message"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1195",
+      "name": "Supply Chain Compromise",
+      "tactics": [
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1195|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1195_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1195.001",
+      "name": "Compromise Software Dependencies and Development Tools",
+      "tactics": [
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1195.001|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1195_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1195.002",
+      "name": "Compromise Software Supply Chain",
+      "tactics": [
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1195.002|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.hostname,target.ip,target.port|windows",
+      "file": "T1195_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1195.003",
+      "name": "Compromise Hardware Supply Chain",
+      "tactics": [
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1195.003|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|linux",
+      "file": "T1195_003_v1_baseline.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $file.target.file.full_path = /^\\/etc\\/systemd\\// nocase or"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1199",
+      "name": "Trusted Relationship",
+      "tactics": [
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Identity Provider",
+      "log_source": "identity",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1199|USER_LOGIN|metadata.event_type,network.auth.auth_details,principal.user.email_addresses,principal.user.userid,target.resource.name|identity provider",
+      "file": "T1199_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: getting field descriptors: accessing field \"udm.network.auth\": field \"auth\" does not exist, valid fields are: \"sent_bytes\", \"received_bytes\", \"total_bytes\", \"sent_packets\" (line 27)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1200",
+      "name": "Hardware Additions",
+      "tactics": [
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1200|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|linux",
+      "file": "T1200_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1202",
+      "name": "Indirect Command Execution",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1202|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1202_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"(\"\nexpected ) (line 21)",
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> or $proc.target.process.command_line = /\\/c\\s+.*\\.(bat|cmd|p"
+      ],
+      "auto_fixed": 2,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1205",
+      "name": "Traffic Signaling",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Network Devices",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1205|NETWORK_CONNECTION|metadata.event_type,principal.ip,security_result.action,security_result.summary,target.ip,target.port|network devices",
+      "file": "T1205_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: got an invalid value for enum field \"backstory.SecurityResult.Action\" (line 24)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1205.001",
+      "name": "Port Knocking",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1205.001|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.user.userid,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1205_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1205.002",
+      "name": "Socket Filters",
+      "tactics": [
+        "stealth",
+        "persistence",
+        "command-and-control"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1205.002|NETWORK_CONNECTION|metadata.event_type,network.ip_protocol,network.sent_bytes,network.sent_packets,principal.ip,target.ip,target.port|windows",
+      "file": "T1205_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1207",
+      "name": "Rogue Domain Controller",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1207|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.command_line|windows",
+      "file": "T1207_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1211",
+      "name": "Exploitation for Stealth",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1211|PROCESS_LAUNCH|metadata.event_type,principal.user.userid,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1211_v1_baseline.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> or $proc.target.process.command_line = /audit\\.log/ nocase"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1216",
+      "name": "System Script Proxy Execution",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1216|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1216_v1_baseline.yaral",
+      "warnings": [
+        "UNKNOWN REFERENCE LIST '%temp' - must be one of: global_allowed_admin_tools, global_allowed_admin_users, global_allowed_backup_processes, global_allowed_cloud_principals, global_allowed_domains, global_allowed_mgmt_sources, ..."
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1216.001",
+      "name": "PubPrn",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1216.001|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1216_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 2,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1216.002",
+      "name": "SyncAppvPublishingServer",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1216.002|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1216_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1220",
+      "name": "XSL Script Processing",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1220|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1220_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1221",
+      "name": "Template Injection",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1221|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.file.full_path|windows",
+      "file": "T1221_v1_baseline.yaral",
+      "warnings": [
+        "Windows path/exe regex without case-insensitivity (add 'nocase' or '(?i)')"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1222",
+      "name": "File and Directory Permissions Modification",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1222|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1222_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: parsing: error with token: \"]\"\nexpected ) (line 28)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1222.001",
+      "name": "Windows Permissions",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1222.001|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1222_001_v1_baseline.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $proc.target.process.command_line = /\\/grant/ nocase or"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1222.002",
+      "name": "Linux and Mac Permissions",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1222.002|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1222_002_v1_baseline.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $proc.target.process.file.full_path = /\\/chmod$/ nocase or"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1480",
+      "name": "Execution Guardrails",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1480|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1480_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1480.001",
+      "name": "Environmental Keying",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1480.001|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1480_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1480.002",
+      "name": "Mutual Exclusion",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1480.002|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.process.pid,target.file.full_path|linux",
+      "file": "T1480_002_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: type mismatch between \"file.udm.principal.process.pid\" of type string and \"0\" of type int (line 40)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1491",
+      "name": "Defacement",
+      "tactics": [
+        "impact"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1491|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|esxi",
+      "file": "T1491_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1491.001",
+      "name": "Internal Defacement",
+      "tactics": [
+        "impact"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1491.001|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|esxi",
+      "file": "T1491_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1491.002",
+      "name": "External Defacement",
+      "tactics": [
+        "impact"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1491.002|NETWORK_HTTP|metadata.event_type,network.http.method,principal.ip,target.hostname,target.ip,target.port,target.url|windows",
+      "file": "T1491_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1495",
+      "name": "Firmware Corruption",
+      "tactics": [
+        "impact"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1495|NETWORK_CONNECTION|metadata.event_type,principal.ip,target.ip,target.port|linux",
+      "file": "T1495_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1496",
+      "name": "Resource Hijacking",
+      "tactics": [
+        "impact"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "container",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1496|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1496_v1_baseline.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $proc.target.process.command_line = /stratum\\+tcp:\\/\\// noca"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1496.001",
+      "name": "Compute Hijacking",
+      "tactics": [
+        "impact"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Containers",
+      "log_source": "cloud_audit",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1496.001|RESOURCE_CREATION|metadata.event_type,principal.user.userid,target.resource.attribute.labels.key,target.resource.attribute.labels.value,target.resource.name,target.resource.resource_type|containers",
+      "file": "T1496_001_v1_baseline.yaral",
+      "warnings": [
+        "CHRONICLE COMPILE FAILED: validating intermediate representation: expect type [string], got type backstory.Resource.ResourceType for \"cloud.udm.target.resource.resource_type\" (line 20)"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": false
+    },
+    {
+      "id": "T1496.002",
+      "name": "Bandwidth Hijacking",
+      "tactics": [
+        "impact"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1496.002|NETWORK_FLOW|metadata.event_type,network.sent_bytes,principal.ip,target.hostname,target.ip,target.port|windows",
+      "file": "T1496_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    }
+  ]
+}

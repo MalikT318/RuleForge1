@@ -1,0 +1,265 @@
+{
+  "run_id": "20260812T193119Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 176,
+  "gap_count": 92,
+  "generated": 12,
+  "failed": 0,
+  "with_warnings": 2,
+  "auto_fixed_total": 19,
+  "elapsed_minutes": 3.9,
+  "generated_by_priority_tier": {
+    "Obfuscation / Deobfuscation": 2,
+    "Scheduled Tasks / Autostart": 6,
+    "Unprioritized (long tail)": 4
+  },
+  "generated_by_platform": {
+    "Windows": 9,
+    "macOS": 3
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1027.012",
+      "name": "LNK Icon Smuggling",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.012|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1027_012_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1027.013",
+      "name": "Encrypted/Encoded File",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 7,
+      "priority_label": "Obfuscation / Deobfuscation",
+      "fingerprint": "T1027.013|FILE_CREATION|metadata.event_type,principal.process.file.full_path,target.file.full_path|windows",
+      "file": "T1027_013_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1547.001",
+      "name": "Registry Run Keys / Startup Folder",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.001|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key,target.registry.registry_value_name|windows",
+      "file": "T1547_001_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1547.002",
+      "name": "Authentication Package",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.002|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key,target.registry.registry_value_data,target.registry.registry_value_name|windows",
+      "file": "T1547_002_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 2
+    },
+    {
+      "id": "T1547.003",
+      "name": "Time Providers",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.003|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key,target.registry.registry_value_data,target.registry.registry_value_name|windows",
+      "file": "T1547_003_v1_telemetry.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1547.004",
+      "name": "Winlogon Helper DLL",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.004|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key,target.registry.registry_value_data,target.registry.registry_value_name|windows",
+      "file": "T1547_004_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 3
+    },
+    {
+      "id": "T1547.005",
+      "name": "Security Support Provider",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "telemetry",
+      "rule_type": "single-event",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.005|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key,target.registry.registry_value_data|windows",
+      "file": "T1547_005_v1_telemetry.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1547.009",
+      "name": "Shortcut Modification",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 2,
+      "pivot": "sequence",
+      "rule_type": "correlation",
+      "population": "priority-covered (depth)",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 8,
+      "priority_label": "Scheduled Tasks / Autostart",
+      "fingerprint": "T1547.009|FILE_CREATION,PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.file.full_path,target.process.file.full_path|windows",
+      "file": "T1547_009_v2_sequence.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1011.001",
+      "name": "Exfiltration Over Bluetooth",
+      "tactics": [
+        "exfiltration"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1011.001|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|macos",
+      "file": "T1011_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1014",
+      "name": "Rootkit",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1014|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key,target.registry.registry_value_data,target.registry.registry_value_name|windows",
+      "file": "T1014_v1_baseline.yaral",
+      "warnings": [
+        "INVALID: regex suffix flag (e.g. /pattern/i) is not YARA-L syntax - use the 'nocase' keyword instead"
+      ],
+      "auto_fixed": 9
+    },
+    {
+      "id": "T1052",
+      "name": "Exfiltration Over Physical Medium",
+      "tactics": [
+        "exfiltration"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1052|FILE_CREATION|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.file.full_path|macos",
+      "file": "T1052_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1195.003",
+      "name": "Compromise Hardware Supply Chain",
+      "tactics": [
+        "initial-access"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1195.003|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|macos",
+      "file": "T1195_003_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    }
+  ]
+}

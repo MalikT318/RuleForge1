@@ -1,0 +1,24 @@
+{
+  "name": "TELUS Top 10 techniques by incident volume",
+  "source": "Supervisor-provided report (prior year); accounted for ~78% of all triggered incidents",
+  "attack_version": "19.1",
+  "notes": [
+    "Tiers are processed in the order listed - tier 1 rules are generated first.",
+    "Listing a parent ID automatically includes all of its sub-techniques.",
+    "T1562 (Impair Defenses) was retired by MITRE and restructured into T1685 /",
+    "T1686 / T1687 in current ATT&CK. Tier 6 uses the current IDs.",
+    "To update for a new year: edit the tiers below. No code changes needed."
+  ],
+  "tiers": [
+    { "rank": 1,  "label": "Process Injection",                      "ids": ["T1055"] },
+    { "rank": 2,  "label": "Command and Scripting Interpreter",      "ids": ["T1059"] },
+    { "rank": 3,  "label": "Valid Accounts (incl. cloud)",           "ids": ["T1078"] },
+    { "rank": 4,  "label": "Credential Dumping / Password Stores",   "ids": ["T1003", "T1555"] },
+    { "rank": 5,  "label": "App-layer C2 and Ingress Tool Transfer", "ids": ["T1071", "T1105"] },
+    { "rank": 6,  "label": "Impair Defenses (formerly T1562)",       "ids": ["T1685", "T1686", "T1687"] },
+    { "rank": 7,  "label": "Obfuscation / Deobfuscation",            "ids": ["T1027", "T1140"] },
+    { "rank": 8,  "label": "Scheduled Tasks / Autostart",            "ids": ["T1053", "T1547"] },
+    { "rank": 9,  "label": "Discovery (System / Network / Account)", "ids": ["T1082", "T1016", "T1087"] },
+    { "rank": 10, "label": "Data Encrypted for Impact / Cloud Theft","ids": ["T1486", "T1530", "T1041"] }
+  ]
+}

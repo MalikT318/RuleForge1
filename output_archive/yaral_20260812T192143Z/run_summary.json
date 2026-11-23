@@ -1,0 +1,249 @@
+{
+  "run_id": "20260812T192143Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 176,
+  "gap_count": 99,
+  "generated": 7,
+  "failed": 0,
+  "with_warnings": 0,
+  "auto_fixed_total": 7,
+  "elapsed_minutes": 3.7,
+  "generated_by_priority_tier": {
+    "Unprioritized (long tail)": 7
+  },
+  "generated_by_platform": {
+    "Windows": 5,
+    "macOS": 2
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1027.012",
+      "name": "LNK Icon Smuggling",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 7,
+      "declined": true
+    },
+    {
+      "id": "T1027.013",
+      "name": "Encrypted/Encoded File",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 7,
+      "declined": true
+    },
+    {
+      "id": "T1547.001",
+      "name": "Registry Run Keys / Startup Folder",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 8,
+      "declined": true
+    },
+    {
+      "id": "T1547.002",
+      "name": "Authentication Package",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 8,
+      "declined": true
+    },
+    {
+      "id": "T1547.003",
+      "name": "Time Providers",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 8,
+      "declined": true
+    },
+    {
+      "id": "T1547.004",
+      "name": "Winlogon Helper DLL",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 8,
+      "declined": true
+    },
+    {
+      "id": "T1547.005",
+      "name": "Security Support Provider",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 8,
+      "declined": true
+    },
+    {
+      "id": "T1547.009",
+      "name": "Shortcut Modification",
+      "variant": 2,
+      "pivot": "sequence",
+      "priority_tier": 8,
+      "declined": true
+    },
+    {
+      "id": "T1011.001",
+      "name": "Exfiltration Over Bluetooth",
+      "variant": 1,
+      "pivot": "baseline",
+      "priority_tier": 999,
+      "declined": true
+    },
+    {
+      "id": "T1014",
+      "name": "Rootkit",
+      "variant": 1,
+      "pivot": "baseline",
+      "priority_tier": 999,
+      "declined": true
+    },
+    {
+      "id": "T1037.003",
+      "name": "Network Logon Script",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "identity",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1037.003|USER_RESOURCE_UPDATE_CONTENT|metadata.event_type,principal.user.userid,target.resource.attribute.labels.key|windows",
+      "file": "T1037_003_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 3
+    },
+    {
+      "id": "T1052",
+      "name": "Exfiltration Over Physical Medium",
+      "variant": 1,
+      "pivot": "baseline",
+      "priority_tier": 999,
+      "declined": true
+    },
+    {
+      "id": "T1115",
+      "name": "Clipboard Data",
+      "tactics": [
+        "collection"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1115|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|macos",
+      "file": "T1115_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1134.002",
+      "name": "Create Process with Token",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1134.002|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.file.full_path,target.user.userid|windows",
+      "file": "T1134_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 2
+    },
+    {
+      "id": "T1134.004",
+      "name": "Parent PID Spoofing",
+      "tactics": [
+        "stealth",
+        "privilege-escalation"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1134.004|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1134_004_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1136.002",
+      "name": "Domain Account",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "macOS",
+      "log_source": "macos_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1136.002|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|macos",
+      "file": "T1136_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    },
+    {
+      "id": "T1137.006",
+      "name": "Add-ins",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1137.006|REGISTRY_MODIFICATION|metadata.event_type,principal.process.file.full_path,target.registry.registry_key|windows",
+      "file": "T1137_006_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 1
+    },
+    {
+      "id": "T1176.002",
+      "name": "IDE Extensions",
+      "tactics": [
+        "persistence"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1176.002|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1176_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0
+    }
+  ]
+}

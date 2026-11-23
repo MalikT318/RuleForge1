@@ -1,0 +1,60 @@
+{
+  "run_id": "20260807T161008Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 178,
+  "gap_count": 114,
+  "generated": 0,
+  "failed": 0,
+  "with_warnings": 0,
+  "auto_fixed_total": 0,
+  "elapsed_minutes": 0.7,
+  "generated_by_priority_tier": {},
+  "generated_by_platform": {},
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1027.008",
+      "name": "Stripped Payloads",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 7,
+      "declined": true
+    },
+    {
+      "id": "T1027.012",
+      "name": "LNK Icon Smuggling",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 7,
+      "declined": true
+    },
+    {
+      "id": "T1027.013",
+      "name": "Encrypted/Encoded File",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 7,
+      "declined": true
+    },
+    {
+      "id": "T1140",
+      "name": "Deobfuscate/Decode Files or Information",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 7,
+      "declined": true
+    },
+    {
+      "id": "T1547.001",
+      "name": "Registry Run Keys / Startup Folder",
+      "variant": 1,
+      "pivot": "telemetry",
+      "priority_tier": 8,
+      "declined": true
+    }
+  ]
+}

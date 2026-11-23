@@ -1,0 +1,272 @@
+{
+  "run_id": "20260909T234639Z",
+  "attack_version": "19.1",
+  "model": "claude-sonnet-4-5",
+  "language": "yaral",
+  "coverage_file": "coverage.csv",
+  "covered_count": 176,
+  "gap_count": 12,
+  "generated": 12,
+  "failed": 0,
+  "with_warnings": 1,
+  "auto_fixed_total": 11,
+  "chronicle_verified_ok": 12,
+  "chronicle_verified_failed": 0,
+  "elapsed_minutes": 4.9,
+  "generated_by_priority_tier": {
+    "Unprioritized (long tail)": 12
+  },
+  "generated_by_platform": {
+    "ESXi": 3,
+    "Windows": 5,
+    "SaaS": 2,
+    "Office Suite": 1,
+    "Linux": 1
+  },
+  "priority_list": "TELUS Top 10 techniques by incident volume",
+  "in_progress": false,
+  "results": [
+    {
+      "id": "T1673",
+      "name": "Virtual Machine Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1673|PROCESS_LAUNCH|metadata.event_type,principal.ip,principal.user.userid,target.process.command_line|esxi",
+      "file": "T1673_v1_baseline.yaral",
+      "warnings": [
+        "INVALID: 'nocase' in an unsupported position (only valid directly after a field-to-literal/regex comparison) -> $proc.target.process.command_line = /esxcli\\s+vm\\s+process\\s"
+      ],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1674",
+      "name": "Input Injection",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1674|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1674_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1675",
+      "name": "ESXi Administration Command",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1675|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,principal.user.userid,target.process.command_line|esxi",
+      "file": "T1675_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1677",
+      "name": "Poisoned Pipeline Execution",
+      "tactics": [
+        "execution"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "SaaS",
+      "log_source": "cloud_audit",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1677|USER_RESOURCE_UPDATE_CONTENT|metadata.event_type,principal.user.userid,target.resource.name|saas",
+      "file": "T1677_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1678",
+      "name": "Delay Execution",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1678|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1678_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1679",
+      "name": "Selective Exclusion",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1679|PROCESS_LAUNCH|metadata.event_type,principal.hostname,principal.process.file.full_path,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1679_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1680",
+      "name": "Local Storage Discovery",
+      "tactics": [
+        "discovery"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "ESXi",
+      "log_source": "vmware_esxi",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1680|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|esxi",
+      "file": "T1680_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1684",
+      "name": "Social Engineering",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "SaaS",
+      "log_source": "identity",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1684|USER_CHANGE_PERMISSIONS|metadata.event_type,principal.user.userid,security_result.summary,target.resource.attribute.labels.key,target.resource.attribute.labels.value|saas",
+      "file": "T1684_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 8,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1684.001",
+      "name": "Impersonation",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Office Suite",
+      "log_source": "m365",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1684.001|EMAIL_TRANSACTION|metadata.event_type,network.email.from,network.email.subject,principal.user.userid|office suite",
+      "file": "T1684_001_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1684.002",
+      "name": "Email Spoofing",
+      "tactics": [
+        "stealth"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Linux",
+      "log_source": "linux_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1684.002|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|linux",
+      "file": "T1684_002_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1689",
+      "name": "Downgrade Attack",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "windows_endpoint",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1689|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1689_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 3,
+      "chronicle_verified": true
+    },
+    {
+      "id": "T1690",
+      "name": "Prevent Command History Logging",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "variant": 1,
+      "pivot": "baseline",
+      "rule_type": "single-event",
+      "population": "long-tail gap",
+      "platform": "Windows",
+      "log_source": "firewall",
+      "priority_tier": 999,
+      "priority_label": "Unprioritized (long tail)",
+      "fingerprint": "T1690|PROCESS_LAUNCH|metadata.event_type,principal.process.file.full_path,principal.user.userid,target.process.command_line,target.process.file.full_path|windows",
+      "file": "T1690_v1_baseline.yaral",
+      "warnings": [],
+      "auto_fixed": 0,
+      "chronicle_verified": true
+    }
+  ]
+}

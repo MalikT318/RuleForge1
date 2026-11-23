@@ -1,0 +1,22 @@
+{
+  "run_id": "20260911T153405Z",
+  "in_progress": true,
+  "completed": 2,
+  "planned": 12,
+  "results": [
+    {
+      "id": "T1055",
+      "name": "Process Injection",
+      "variant": 3,
+      "priority_tier": 1,
+      "error": "HTTP 400: {\"error\":{\"message\":\"Model 'claude-opus-5' is only available via the /v1/messages endpoint, not '/v1/chat/completions'. Premium models require prompt caching, which is only expressible on /v1/messages. Switch your client to the /v1/messages (Anthropic Messages) API, or use a non-premium model (e.g. "
+    },
+    {
+      "id": "T1055",
+      "name": "Process Injection",
+      "variant": 4,
+      "priority_tier": 1,
+      "error": "HTTP 400: {\"error\":{\"message\":\"Model 'claude-opus-5' is only available via the /v1/messages endpoint, not '/v1/chat/completions'. Premium models require prompt caching, which is only expressible on /v1/messages. Switch your client to the /v1/messages (Anthropic Messages) API, or use a non-premium model (e.g. "
+    }
+  ]
+}
